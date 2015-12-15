@@ -69,6 +69,7 @@ label:hover {
     padding-top: 17px;
     border-bottom-width: 0;
     background: white;
+    
 }
 
 [id^="tab"]:checked ~ [id^="tab-content"] {

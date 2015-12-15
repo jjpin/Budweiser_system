@@ -35,7 +35,40 @@
                     <input type="radio" name="tabs" id="tab3" />
                     <label for="tab3">生產</label>
                     <div id="tab-content3" class="tab-content">
-                        生產～～～～～～
+                        <div id="tab-info" class="infoTab-content" align="right">
+
+                        <button onclick="addproduct()" >增加新產品</button>
+                        <button onclick="addamount()" align="right">調整製造量</button>
+                    <form>  
+                        <select name="color">
+　                        <option value="blue">藍色色素</option>
+　                        <option value="red">紅色色素</option>
+　                        <option value="orange">橘色色素</option>
+　                        <option value="black">黑色色素</option>
+　                         ...
+                        </select>
+                    </form>
+                        <img src="C:\Users\郭泰竹\Desktop\15wa1pnew.jpg" id="soda" alt="" style="vertical-align:middle"><h1>製造量:____L</h1>
+
+                        
+                        </div>
+
+                        <div id="tab-water" class="proTab-content" >
+                            <h1>水</h1>
+                            <span id="amount_water">1000</span>
+                        </div> 
+                        <div id="tab-co2" class="proTab-content">
+                            <h1>二氧化碳</h1>
+                            <span id="amount_co2">1000</span>
+                        </div>  
+                        <div id="tab-sugar" class="proTab-content">
+                            <h1>糖漿</h1>
+                            <span id="amount_sugar">1000</span>
+                        </div> 
+                        <button onclick="produce()" >確認生產！</button>
+
+                        
+
                     </div>
                 </li>
                 <li>

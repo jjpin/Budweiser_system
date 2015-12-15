@@ -1,0 +1,76 @@
+#tabsContainer {
+	width: 702px;
+	margin: 0px auto;
+	text-align: left;
+}
+
+.tabs {
+    width: 650px;
+    float: none;
+    list-style: none;
+    position: relative;
+    margin: 10px 0 10px 0;
+    padding: 0; 
+    text-align: left;
+}
+
+
+li {
+    float: left;
+    display: block;
+}
+
+input[type="radio"] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+label {
+    z-index: 3;
+    display: block;
+    padding: 12px 21px;
+    margin-right: 3px;
+    border: 1px solid black;
+    border-radius: 2px 2px 0 0;
+    font-size: 18px;
+    font-weight: normal;
+    text-transform: uppercase;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    top: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+label:hover {
+    background: #eee;
+}
+
+.tab-content {
+    border: 1px solid black;
+    z-index: 2;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 25px;
+    position: absolute;
+    top: 53px;
+    left: 0;
+    background: white;
+    transition: all 1s ease-in-out;
+}
+
+[id^="tab"]:checked + label {
+    top: 2px;
+    padding-top: 17px;
+    border-bottom-width: 0;
+    background: white;
+}
+
+[id^="tab"]:checked ~ [id^="tab-content"] {
+    display: block;
+}

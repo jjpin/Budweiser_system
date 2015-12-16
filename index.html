@@ -35,7 +35,47 @@
                     <input type="radio" name="tabs" id="tab3" />
                     <label for="tab3">生產</label>
                     <div id="tab-content3" class="tab-content">
-                        生產～～～～～～
+                        <div id="tab-info" class="infoTab-content" align="right">
+
+                        <button onclick="addproduct()" >增加新產品</button>
+                        <button onclick="p_amount()" align="right">調整製造量</button>
+                    
+                        <img src="C:\Users\郭泰竹\Desktop\15wa1pnew.jpg" id="soda" alt="" style="vertical-align:middle">
+                        <span>製造量:</span><span id="newamount">5000</span><span>L</span>
+                        <form>  
+                             <select id="color" >
+　                             <option value="blue">藍色汽水</option>
+　                             <option value="red">紅色汽水</option>
+　                             <option value="orange">橘色汽水</option>
+　                             <option value="black">黑色汽水</option>
+                             </select>
+                        </form>             
+                        </div>
+
+                        <div id="tab-water" class="proTab-content" >
+                            <h1>水</h1>
+                            <span id="amount_water">5000</span>
+                            <button onclick="ingredient1()" >調整</button>
+
+                        </div> 
+                        <div id="tab-co2" class="proTab-content">
+                            <h1>二氧化碳</h1>
+                            <span id="amount_co2">50</span>
+                            <button onclick="ingredient2()" >調整</button>
+                        </div>  
+                        <div id="tab-sugar" class="proTab-content">
+                            <h1>糖</h1>
+                            <span id="amount_sugar">50</span>
+                            <button onclick="ingredient3()" >調整</button>
+                        </div>
+                        <div id="tab-color" class="proTab-content">
+                            <h1>色素</h1>
+                            <span id="amount_color">50</span>
+                            <button onclick="ingredient4()" >調整</button>
+                        </div>  
+
+                        <button onclick="produce()" >確認生產！</button>
+
                     </div>
                 </li>
                 <li>

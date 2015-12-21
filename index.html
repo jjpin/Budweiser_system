@@ -23,13 +23,58 @@
                     <input type="radio" name="tabs" id="tab2" />
                     <label for="tab2">存貨</label>
                     <div id="tab-content2" class="tab-content">
-                        <button onclick="materialTab()"></button>
-                        <button onclick="ProductTab()"></button>
-                        <div id="materialTab">
+                        <div id="stockTabsContainer">
+                            <ul class="stockTabs">
+                                <li>
+                                    <input type="radio" name="stockTabs" id="stockTab1" checked />
+                                    <label for="stockTab1">原物料</label>
+                                    <div id="stockTab-content1" class="stockTab-content">
+                                        <div class="stockbox">
+                                            <img src="test.jpg" alt="" height="100px" width="100px">
+                                            <span>數量：</span><span id="materialQuantity1"></span>
+                                            <span>存貨狀態：</span><span id="materialStat1"></span>
+                                            <button onclick="addStock(" mater1 ")">增加存貨</button>
+                                        </div>
+                                        <div class="stockbox">
+                                            <img src="test.jpg" alt="" height="100px" width="100px">
+                                            <span>數量：</span><span id="materialQuantity2"></span>
+                                            <span>存貨狀態：</span><span id="materialStat2"></span>
+                                            <button onclick="addStock(" mater2 ")">增加存貨</button>
+                                        </div>
+                                        <div class="stockbox">
+                                            <img src="test.jpg" alt="" height="100px" width="100px">
+                                            <span>數量：</span><span id="materialQuantity3"></span>
+                                            <span>存貨狀態：</span><span id="materialStat3"></span>
+                                            <button onclick="addStock(" mater3 ")">增加存貨</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <input type="radio" name="stockTabs" id="stockTab2" />
+                                    <label for="stockTab2">產品</label>
+                                    <div id="stockTab-content2" class="stockTab-content">
+                                        <div class="stockbox">
+                                            <img src="test.jpg" alt="" height="100px" width="100px">
+                                            <span>數量：</span><span id="productQuantity1"></span>
+                                            <span>存貨狀態：</span><span id="productStat1"></span>
+                                            <button onclick="addStock(" pro1 ")">增加存貨</button>
+                                        </div>
+                                        <div class="stockbox">
+                                            <img src="test.jpg" alt="" height="100px" width="100px">
+                                            <span>數量：</span><span id="productQuantity2"></span>
+                                            <span>存貨狀態：</span><span id="productStat2"></span>
+                                            <button onclick="addStock(" pro2 ")">增加存貨</button>
+                                        </div>
+                                        <div class="stockbox">
+                                            <img src="test.jpg" alt="" height="100px" width="100px">
+                                            <span>數量：</span><span id="productQuantity3"></span>
+                                            <span>存貨狀態：</span><span id="productStat3"></span>
+                                            <button onclick="addStock(" pro3 ")">增加存貨</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div id="productTab">
-                        </div>
-                    </div>
                 </li>
                 <li>
                     <input type="radio" name="tabs" id="tab3" />
@@ -46,8 +91,8 @@
                     </div>
                 </li>
             </ul>
+            </div>
         </div>
-    </div>
 </body>
 
 </html>

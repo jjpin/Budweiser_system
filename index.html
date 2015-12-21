@@ -80,14 +80,58 @@
                     <input type="radio" name="tabs" id="tab3" />
                     <label for="tab3">生產</label>
                     <div id="tab-content3" class="tab-content">
-                        生產～～～～～～
+                        <div id="tab-info" class="infoTab-content" align="right">
+                        <button onclick="p_amount()" align="right">調整製造量</button>
+                    
+                        <img src="C:\Users\郭泰竹\Desktop\15wa1pnew.jpg" id="soda" alt="" style="vertical-align:middle">
+                        <span>製造量:</span><span id="newamount">5000</span><span>L</span>
+                        <form>  
+                             <select id="color" >
+　                             <option value="藍色汽水">藍色汽水
+　                             <option value="紅色汽水">紅色汽水
+　                             <option value="橘色汽水">橘色汽水
+　                             <option value="黑色汽水">黑色汽水
+                             </select>
+                             <p>
+                                <input type="button" value="刪除反白選項" onclick="deleteOption(color)"><br>
+                                <input type="button" value="增加右列選項" onclick="addOption(color, theText.value, theText.value)">
+                                汽水名: <input id=theText value="name">
+                                
+                             </p>
+                        </form>             
+                        </div>
+
+                        <div id="tab-water" class="proTab-content" >
+                            <h1>水</h1>
+                            <span id="amount_water">5000</span>
+                            <button onclick="ingredient1()" >調整</button>
+
+                        </div> 
+                        <div id="tab-co2" class="proTab-content">
+                            <h1>二氧化碳</h1>
+                            <span id="amount_co2">50</span>
+                            <button onclick="ingredient2()" >調整</button>
+                        </div>  
+                        <div id="tab-sugar" class="proTab-content">
+                            <h1>糖</h1>
+                            <span id="amount_sugar">50</span>
+                            <button onclick="ingredient3()" >調整</button>
+                        </div>
+                        <div id="tab-color" class="proTab-content">
+                            <h1>色素</h1>
+                            <span id="amount_color">50</span>
+                            <button onclick="ingredient4()" >調整</button>
+                        </div>  
+
+                        <button onclick="sureforproduce()" >確認生產！</button>
+
                     </div>
                 </li>
                 <li>
                     <input type="radio" name="tabs" id="tab4" />
                     <label for="tab4">行銷</label>
                     <div id="tab-content4" class="tab-content">
-                        行銷～～～～～～
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.3707216007956!2d121.57388531426255!3d24.987515983994097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa79452c2f49%3A0x9e8d07508e3bf507!2z5pS_5rK75aSn5a24!5e0!3m2!1szh-TW!2stw!4v1450589283891" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </li>
             </ul>

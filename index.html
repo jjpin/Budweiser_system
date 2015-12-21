@@ -36,19 +36,23 @@
                     <label for="tab3">生產</label>
                     <div id="tab-content3" class="tab-content">
                         <div id="tab-info" class="infoTab-content" align="right">
-
-                        <button onclick="addproduct()" >增加新產品</button>
                         <button onclick="p_amount()" align="right">調整製造量</button>
                     
                         <img src="C:\Users\郭泰竹\Desktop\15wa1pnew.jpg" id="soda" alt="" style="vertical-align:middle">
                         <span>製造量:</span><span id="newamount">5000</span><span>L</span>
                         <form>  
                              <select id="color" >
-　                             <option value="blue">藍色汽水</option>
-　                             <option value="red">紅色汽水</option>
-　                             <option value="orange">橘色汽水</option>
-　                             <option value="black">黑色汽水</option>
+　                             <option value="藍色汽水">藍色汽水
+　                             <option value="紅色汽水">紅色汽水
+　                             <option value="橘色汽水">橘色汽水
+　                             <option value="黑色汽水">黑色汽水
                              </select>
+                             <p>
+                                <input type="button" value="刪除反白選項" onclick="deleteOption(color)"><br>
+                                <input type="button" value="增加右列選項" onclick="addOption(color, theText.value, theText.value)">
+                                汽水名: <input id=theText value="name">
+                                
+                             </p>
                         </form>             
                         </div>
 
@@ -74,7 +78,7 @@
                             <button onclick="ingredient4()" >調整</button>
                         </div>  
 
-                        <button onclick="produce()" >確認生產！</button>
+                        <button onclick="sureforproduce()" >確認生產！</button>
 
                     </div>
                 </li>

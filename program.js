@@ -1,3 +1,10 @@
+window.onload = init;
+
+//這裡放一開啟網頁就要執行一次的函式
+function init() {
+	stockRefresh();
+}
+
 //宣告資料庫們
 //顧客與銷售資料、生產相關參數、存貨與運輸參數
 
@@ -14,12 +21,28 @@ var amount_red = 100;
 var amount_orange = 100;
 var amount_black = 100;
 
+//--------------
+//瀚：
+//泰竹你應該將這些商品的名稱與數量分別用array來儲存，
+//因為這是會變動的，產品會被新增或刪除，因此若是分開宣告一個個變數，你會很難去新增
+//所以我先宣告以下兩個array了，你記得將你的function們有用到商品數量的改一改
+productNames = ["藍色汽水","紅色汽水","橘色汽水","黑色汽水"];
+productAmounts = ["100","100","100","100"];
+//這樣使用者新增產品時直接使用push就搞定了，後面的存貨才方便存取，直接讀Array就好了
+//ex: productNames.push("林鳳營");
+//ex: productAmounts.push("100000000");
+//--------------
+
 //生產要素
 var pamount
 var wingredient;
 var singredient;
 var cingredient;
 var col_ingredient;
+
+//存貨狀態
+var ingredientStats = ["正常","正常","正常","正常"];
+var productStats = ["正常","正常","正常","正常"];
 
 //生產
 function sureforproduce(){
@@ -41,6 +64,8 @@ function produce(name,amount) {
 	
 	alert("您所製造的品號為:"+ name );
 	alert("製造量為:"+ amount);
+
+	//瀚：生產完了原料與商品數量的變數都沒有變啊～～～～
 
 
 }
@@ -106,14 +131,66 @@ function addOption(list, text, value){
 	var index=list.options.length;
 	list.options[index]=new Option(text, value);
 	list.selectedIndex=index;
+
+	//瀚：
+	//這裡只有list裡新增，但系統裡根本沒有真正的新增到～～
+	//所以幫你做了
+	productNames.push(value);
+	productAmounts.push(0);
+	productStats.push("短缺");
+
+	//在存貨畫面新增欄位
+	addStockBox(value);
 }
 //存貨
 function stock() {
 
 }
 
-function addstock(name) {
+//新增產品時在存貨畫面新增欄位
+function addStockBox(name) {
+	//新增div然後複製stockbox範例的內容
+    var stockbox = document.createElement("div");
+    document.getElementById("stockTab-content2").appendChild(stockbox);
+    stockbox.setAttribute("class", "stockbox");
+    stockbox.id = "stock" + productNames.length;
+    stockbox.innerHTML = document.getElementById("stockSample").innerHTML;
+
+    //將div內tag的id做修改
+    document.getElementsByName("productNameSample")[1].id = "productName" + productNames.length;
+    document.getElementsByName("productNameSample")[1].removeAttribute("name");
+	document.getElementsByName("productQuantitySample")[1].id = "productQuantity" + productNames.length;
+    document.getElementsByName("productQuantitySample")[1].removeAttribute("name");
+    document.getElementsByName("productStatSample")[1].id = "productStat" + productNames.length;
+    document.getElementsByName("productStatSample")[1].removeAttribute("name");
+    document.getElementsByName("pS")[1].id = "p" + productNames.length;
+    document.getElementsByName("pS")[1].removeAttribute("name");
+    document.getElementsByName("addStockButton")[1].onclick = "addStock(p" + productNames.length + ".id)" ;
+    document.getElementsByName("addStockButton")[1].removeAttribute("name");
+
+    stockRefresh();
     
+}
+
+function stockRefresh() {
+	//原物料狀態的刷新
+	var tempAmountArray = [water,co2,sugar,color];
+
+	for (var i = 0; i < 4; i++) {
+		var temp = "ingredientQuantity" + (i+1);
+		document.getElementById(temp).innerHTML = tempAmountArray[i];
+		temp = "ingredientStat" + (i+1);
+		document.getElementById(temp).innerHTML = ingredientStats[i];
+	}
+	//產品狀態的刷新
+	for (var i = 0; i < productNames.length; i++) {
+		var temp = "productName" + (i+1);
+		document.getElementById(temp).innerHTML = productNames[i];
+		temp = "productQuantity" + (i+1);
+		document.getElementById(temp).innerHTML = productAmounts[i];
+		temp = "productStat" + (i+1);
+		document.getElementById(temp).innerHTML = productStats[i];
+	}	
 }
 
 //行銷

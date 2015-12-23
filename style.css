@@ -130,7 +130,7 @@ label:hover {
     display: block;
 }
 
-//以下存貨用
+
 
 #stockTabsContainer {
     width: 702px;
@@ -185,4 +185,16 @@ label:hover {
     margin: 10px;
 }
 
-//以上存貨用
+
+.requestBox {
+    width: 650px;
+    height: 30px;
+    border: 1px solid black;
+    margin: 10px;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+.requestBox:hover {
+    background: #eee;
+}

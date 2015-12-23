@@ -1,7 +1,8 @@
 #tabsContainer {
-	width: 702px;
-	margin: 0px auto;
-	text-align: left;
+    width: 702px;
+    margin: 0px auto;
+    text-align: left;
+    float:left;
 }
 #soda {
     height:80px; width:80px ; float:left;
@@ -45,6 +46,7 @@ label {
     position: relative;
     top: 6px;
     transition: all 0.2s ease-in-out;
+    
 }
 
 label:hover {
@@ -56,7 +58,7 @@ label:hover {
     z-index: 2;
     display: none;
     overflow: auto;
-    width: 100%;
+    width: 250%;
     height: 500px;
     font-size: 17px;
     line-height: 25px;
@@ -66,6 +68,7 @@ label:hover {
     left: 0;
     background: white;
     transition: all 1s ease-in-out;
+    float:left;
 }
 .proTab-content {
     border: 1px solid black;
@@ -73,7 +76,23 @@ label:hover {
     float:left;
     overflow: auto;
     width: 140px;
-    height: 250px;
+    height: 150px;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 25px;
+    margin: 10px;
+    top: 53px;
+    left: 0;
+    background: white;
+    transition: all 1s ease-in-out;
+}
+.proTab-order {
+    border: 1px solid black;
+    z-index: 2;
+    float:left;
+    overflow: auto;
+    width: 300px;
+    height: 110px;
     font-size: 17px;
     line-height: 25px;
     padding: 25px;
@@ -89,7 +108,7 @@ label:hover {
     float:left;
     overflow: auto;
     width: 600px;
-    height: 100px;
+    height: 150px;
     font-size: 17px;
     line-height: 25px;
     padding: 25px;

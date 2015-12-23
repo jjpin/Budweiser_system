@@ -11,15 +11,47 @@ function init() {
 //製作一公升的汽水，需要1升的水，0.01公升的CO2，10g的糖，10g的色素
 
 
-var water=10000;//100000公升
+var water=100000;//100000公升
 var sugar=100000;//公斤
 var color=100000;//公斤
 var co2=10000;//10000公升
 
-var amount_blue = 100;//每種產品的數量
-var amount_red = 100;
-var amount_orange = 100;
-var amount_black = 100;
+
+
+var store1_cur = [35, 10, 50]; //分店現在狀況(今日銷售, 剩餘存貨, 配送數量)
+var store2_cur = [28, 20, 50];
+var store3_cur = [34, 9, 50];
+var store4_cur = [8, 32, 50];
+var store5_cur = [22, 20, 50];
+var store6_cur = [39, 5, 50];
+var store7_cur = [19, 25, 50];
+var store8_cur = [20, 20, 50];
+var store9_cur = [15, 30, 50];
+var store10_cur = [40, 5, 50];
+
+var store1_sales = [1000, 1500, 2100, 1505, 1830, 1900, 2100, 2200, 2250, 1894, 1200, 1100]; //分店1的各月銷售量
+var store2_sales = [1600, 2500, 2640, 2505, 2830, 2900, 2990, 2600, 2350, 2194, 2000, 1500];
+var store3_sales = [1100, 1300, 1900, 2005, 1800, 2100, 2300, 2200, 2250, 1872, 1400, 1300];
+var store4_sales = [900, 1200, 1900, 1320, 1440, 1900, 2000, 2130, 1650, 1555, 990, 880];
+var store5_sales = [1100, 1300, 1900, 2005, 1800, 2100, 2300, 2200, 2250, 1872, 1400, 1300];
+var store6_sales = [1000, 1500, 2100, 1505, 1830, 1900, 2100, 2200, 2250, 1894, 1200, 1100];
+var store7_sales = [1100, 1300, 1900, 2005, 1800, 2100, 2300, 2200, 2250, 1872, 1400, 1300];
+var store8_sales = [1000, 1500, 2100, 1505, 1830, 1900, 2100, 2200, 2250, 1894, 1200, 1100];
+var store9_sales = [900, 1200, 1900, 1320, 1440, 1900, 2000, 2130, 1650, 1555, 990, 880];
+var store10_sales = [1600, 2500, 2640, 2505, 2830, 2900, 2990, 2600, 2350, 2194, 2000, 1500];
+
+
+//--------------
+//瀚：
+//泰竹你應該將這些商品的名稱與數量分別用array來儲存，
+//因為這是會變動的，產品會被新增或刪除，因此若是分開宣告一個個變數，你會很難去新增
+//所以我先宣告以下兩個array了，你記得將你的function們有用到商品數量的改一改
+productNames = ["藍色汽水","紅色汽水","橘色汽水","黑色汽水"];
+productAmounts = [2000,2000,2000,2000];
+//這樣使用者新增產品時直接使用push就搞定了，後面的存貨才方便存取，直接讀Array就好了
+//ex: productNames.push("林鳳營");
+//ex: productAmounts.push("100000000");
+//--------------
 
 var store1_cur = [35, 10, 50]; //分店現在狀況(今日銷售, 剩餘存貨, 配送數量)
 var store2_cur = [28, 20, 50];
@@ -58,10 +90,15 @@ productAmounts = ["100","100","100","100"];
 
 //生產要素
 var pamount
-var wingredient;
-var singredient;
-var cingredient;
-var col_ingredient;
+var wingredient=5000;
+var singredient=50;
+var cingredient=50;
+var col_ingredient=50;
+
+//存貨狀態
+var ingredientStats = ["正常","正常","正常","正常"];
+var productStats = ["正常","正常","正常","正常"];
+
 
 //存貨狀態
 var ingredientStats = ["正常","正常","正常","正常"];
@@ -70,23 +107,35 @@ var productStats = ["正常","正常","正常","正常"];
 //生產
 function sureforproduce(){
 	var name =  document.getElementById("color").value;
-    var amount =  document.getElementById("newamount").innerHTML;
+    var amount = parseFloat(document.getElementById("newamount").innerHTML); 
 
     produce(name,amount);
 
 }
 function produce(name,amount) {
 	
-	var co2_amount = cingredient;
-	var sugar_amount = singredient;
-	var water_amount = wingredient;
-    var color_amount = col_ingredient;
+	 co2   -= cingredient;
+	 sugar -= singredient;
+	 water -= wingredient;
+     color -= col_ingredient;
 
-
+     
+ 
 	var reply= confirm('生產成功!');
+
+	for(var i=0 ; i < productNames.length ; i++ ){
+		if ( productNames[i] == name ) {
+			productAmounts[i] += amount;
+
+		}
+		
+	}
 	
-	alert("您所製造的品號為:"+ name );
-	alert("製造量為:"+ amount);
+	alert("您所製造的品項為:"+ name +"，製造量為:"+ amount +"L");
+	
+
+	//瀚：生產完了原料與商品數量的變數都沒有變啊～～～～
+	stockRefresh();
 
 	//瀚：生產完了原料與商品數量的變數都沒有變啊～～～～
 
@@ -101,6 +150,10 @@ function ingredient1(){
 	document.getElementById("amount_co2").innerHTML=0.01*wingredient.toString();
 	document.getElementById("amount_color").innerHTML=0.01*wingredient.toString();
 	document.getElementById("newamount").innerHTML=wingredient.toString();
+	cingredient = 0.1*wingredient;
+	colingredient = 0.1*wingredient;
+	singredient =  0.1*wingredient ;
+	pamount = wingredient ;
 }
 function ingredient2(){
 	 singredient =  prompt('請輸入所需此原料數量!') ;
@@ -110,6 +163,10 @@ function ingredient2(){
 	document.getElementById("amount_co2").innerHTML=singredient.toString();
 	document.getElementById("amount_color").innerHTML=singredient.toString();
 	document.getElementById("newamount").innerHTML=100*singredient.toString();
+	cingredient = 0.1*singredient;
+	colingredient = 0.1*singredient;
+	wingredient =  100*singredient ;
+	pamount = 100*singredient ;
 }
 function ingredient3(){
 	 cingredient =  prompt('請輸入所需此原料數量!') ;
@@ -119,6 +176,10 @@ function ingredient3(){
 	document.getElementById("amount_co2").innerHTML=cingredient.toString();
 	document.getElementById("amount_color").innerHTML=cingredient.toString();
 	document.getElementById("newamount").innerHTML=100*cingredient.toString();
+	singredient = cingredient;
+	colingredient = cingredient;
+	wingredient =  100*cingredient ;
+	pamount = 100*cingredient ;
 }
 function ingredient4(){
 	 colingredient =  prompt('請輸入所需此原料數量!') ;
@@ -128,6 +189,10 @@ function ingredient4(){
 	document.getElementById("amount_co2").innerHTML=colingredient.toString();
 	document.getElementById("amount_color").innerHTML=colingredient.toString();
 	document.getElementById("newamount").innerHTML=100*colingredient.toString();
+	singredient = colingredient;
+	cingredient = colingredient;
+	wingredient =  100*colngredient ;
+	pamount = 100*colingredient ;
 }
 
 //跳窗調整製造量
@@ -139,15 +204,11 @@ function p_amount(){
 	document.getElementById("amount_sugar").innerHTML=0.01*pamount.toString();
 	document.getElementById("amount_co2").innerHTML=0.01*pamount.toString();
 	document.getElementById("amount_color").innerHTML=0.01*pamount.toString();
+	singredient = 0.01*pamount;
+	cingredient = 0.01*pamount;
+	wingredient = pamount;
+	colingredient = 0.01*pamount;
 
-}
-//刪除產品
-function deleteOption(list){
-	var index=list.selectedIndex;
-	if (index>=0)
-		list.options[index]=null;
-	else
-		alert("無反白選項！");
 }
 //新增產品
 function addOption(list, text, value){

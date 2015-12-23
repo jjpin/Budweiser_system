@@ -134,9 +134,10 @@
                     <label for="tab3">生產</label>
                     <div id="tab-content3" class="tab-content">
                         <div id="tab-info" class="infoTab-content" align="right">
+                            
                         <button onclick="p_amount()" align="right">調整製造量</button>
                     
-                        <img src="C:\Users\郭泰竹\Desktop\15wa1pnew.jpg" id="soda" alt="" style="vertical-align:middle">
+                        <img src="new.jpg" id="soda" alt="" style="vertical-align:middle">
                         <span>製造量:</span><span id="newamount">5000</span><span>L</span>
                         <form>  
                              <select id="color" >
@@ -146,13 +147,14 @@
 　                             <option value="黑色汽水">黑色汽水
                              </select>
                              <p>
-                                <input type="button" value="刪除反白選項" onclick="deleteOption(color)"><br>
+                                
                                 <input type="button" value="增加右列選項" onclick="addOption(color, theText.value, theText.value)">
                                 汽水名: <input id=theText value="name">
                                 
                              </p>
                         </form>             
                         </div>
+
 
                         <div id="tab-water" class="proTab-content" >
                             <h1>水</h1>
@@ -174,7 +176,13 @@
                             <h1>色素</h1>
                             <span id="amount_color">50</span>
                             <button onclick="ingredient4()" >調整</button>
-                        </div>  
+                        </div> 
+                        <div id="tab-order" class="proTab-order">
+                            <h1>生產訂單</h1>
+                            <span>訂單數:</span>
+                            <span id="amount_order">0</span>
+                            <button onclick="produce_order()" >生產此訂單</button>
+                        </div>   
 
                         <button onclick="sureforproduce()" >確認生產！</button>
 

@@ -104,7 +104,11 @@ function sureforproduce(){
 	var name =  document.getElementById("color").value;
     var amount = parseFloat(document.getElementById("newamount").innerHTML); 
 
+    if(co2<cingredient || sugar<singredient|| water<wingredient||color<col_ingredient){
+    	alert("原料不足，生產失敗!請至存貨區補足原料!");
+    }else{
     produce(name,amount);
+	}
 
 }
 function produce(name,amount) {
@@ -114,16 +118,13 @@ function produce(name,amount) {
 	 water -= wingredient;
      color -= col_ingredient;
 
-     
- 
+
 	var reply= confirm('生產成功!');
 
 	for(var i=0 ; i < productNames.length ; i++ ){
 		if ( productNames[i] == name ) {
 			productAmounts[i] += amount;
-
 		}
-		
 	}
 	
 	alert("您所製造的品項為:"+ name +"，製造量為:"+ amount +"L");
@@ -140,9 +141,9 @@ function ingredient1(){
 	document.getElementById("amount_co2").innerHTML=0.01*wingredient.toString();
 	document.getElementById("amount_color").innerHTML=0.01*wingredient.toString();
 	document.getElementById("newamount").innerHTML=wingredient.toString();
-	cingredient = 0.1*wingredient;
-	colingredient = 0.1*wingredient;
-	singredient =  0.1*wingredient ;
+	cingredient = 0.01*wingredient;
+	col_ingredient = 0.01*wingredient;
+	singredient =  0.01*wingredient ;
 	pamount = wingredient ;
 }
 function ingredient2(){
@@ -153,8 +154,8 @@ function ingredient2(){
 	document.getElementById("amount_co2").innerHTML=singredient.toString();
 	document.getElementById("amount_color").innerHTML=singredient.toString();
 	document.getElementById("newamount").innerHTML=100*singredient.toString();
-	cingredient = 0.1*singredient;
-	colingredient = 0.1*singredient;
+	cingredient = singredient;
+	col_ingredient = singredient;
 	wingredient =  100*singredient ;
 	pamount = 100*singredient ;
 }
@@ -167,22 +168,22 @@ function ingredient3(){
 	document.getElementById("amount_color").innerHTML=cingredient.toString();
 	document.getElementById("newamount").innerHTML=100*cingredient.toString();
 	singredient = cingredient;
-	colingredient = cingredient;
+	col_ingredient = cingredient;
 	wingredient =  100*cingredient ;
 	pamount = 100*cingredient ;
 }
 function ingredient4(){
-	 colingredient =  prompt('請輸入所需此原料數量!') ;
+	 col_ingredient =  prompt('請輸入所需此原料數量!') ;
 	alert('您所需要的數量為:' + colingredient);
-	document.getElementById("amount_water").innerHTML=100*colingredient.toString();
-	document.getElementById("amount_sugar").innerHTML=colingredient.toString();
-	document.getElementById("amount_co2").innerHTML=colingredient.toString();
-	document.getElementById("amount_color").innerHTML=colingredient.toString();
-	document.getElementById("newamount").innerHTML=100*colingredient.toString();
-	singredient = colingredient;
-	cingredient = colingredient;
-	wingredient =  100*colngredient ;
-	pamount = 100*colingredient ;
+	document.getElementById("amount_water").innerHTML=100*col_ingredient.toString();
+	document.getElementById("amount_sugar").innerHTML=col_ingredient.toString();
+	document.getElementById("amount_co2").innerHTML=col_ingredient.toString();
+	document.getElementById("amount_color").innerHTML=col_ingredient.toString();
+	document.getElementById("newamount").innerHTML=100*col_ingredient.toString();
+	singredient = col_ingredient;
+	cingredient = col_ingredient;
+	wingredient =  100*col_ingredient ;
+	pamount = 100*col_ingredient ;
 }
 
 //跳窗調整製造量
@@ -197,7 +198,7 @@ function p_amount(){
 	singredient = 0.01*pamount;
 	cingredient = 0.01*pamount;
 	wingredient = pamount;
-	colingredient = 0.01*pamount;
+	col_ingredient = 0.01*pamount;
 
 }
 //新增產品
@@ -221,6 +222,9 @@ function stock() {
 //存貨向生產送出訂單
 function addStockRequest(id) {
 	addStockRequestIndex++;
+	//竹將訂單條移至生產訂單的div下
+	document.getElementById("amount_order").innerHTML= addStockRequestIndex.toString();
+
 	var stockRequestBox = document.createElement("div");
     document.getElementById("requestBoxContainer").appendChild(stockRequestBox);
     stockRequestBox.id = "requestBox" + addStockRequestIndex;
@@ -259,6 +263,9 @@ function addStockConfirm(eventObj) {
     		alert("補貨完成！");
     		var del = document.getElementById(boxid);
     		del.parentNode.removeChild(del);
+    		//竹:訂單數減少
+    		addStockRequestIndex--;
+    		document.getElementById("amount_order").innerHTML= addStockRequestIndex.toString();
     	}
     } else {
     	var name = productNames[needid.slice(1,2)-1];
@@ -266,6 +273,9 @@ function addStockConfirm(eventObj) {
     		produce(name,5000);
     		var del = document.getElementById(boxid);
     		del.parentNode.removeChild(del);
+    		//竹:訂單數減少
+    		addStockRequestIndex--;
+    		document.getElementById("amount_order").innerHTML= addStockRequestIndex.toString();
     	}
     }
     stockRefresh();

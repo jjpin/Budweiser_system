@@ -13,7 +13,9 @@ function init() {
 
 var water=100000;//100000公升
 var sugar=1000;//公斤
-var color=1000;//公斤
+var color_red=1000;
+var color_yellow=1000;
+var color_blue=1000;//公斤
 var co2=1000;//1000公升
 
 
@@ -89,22 +91,26 @@ var pamount
 var wingredient=5000;
 var singredient=50;
 var cingredient=50;
-var col_ingredient=50;
+var col_ingredient_blue=50;
+var col_ingredient_red=50;
+var col_ingredient_yellow=50;
+
 
 //存貨狀態
-var ingredientStats = ["正常","正常","正常","正常"];
+var ingredientStats = ["正常","正常","正常","正常","正常","正常"];
 var productStats = ["正常","正常","正常","正常"];
 
 //補貨相關
-var ingredientOrderAmount = [100000,1000,1000,1000];
+var ingredientOrderAmount = [100000,1000,1000,1000,1000,1000];
 var addStockRequestIndex = 0;
 
 //生產
+
 function sureforproduce(){
 	var name =  document.getElementById("color").value;
     var amount = parseFloat(document.getElementById("newamount").innerHTML); 
 
-    if(co2<cingredient || sugar<singredient|| water<wingredient||color<col_ingredient){
+    if(co2<cingredient || sugar<singredient|| water<wingredient||color_blue<col_ingredient_blue||color_red<col_ingredient_red||color_yellow<col_ingredient_yellow){
     	alert("原料不足，生產失敗!請至存貨區補足原料!");
     }else{
     produce(name,amount);
@@ -116,7 +122,9 @@ function produce(name,amount) {
 	 co2   -= cingredient;
 	 sugar -= singredient;
 	 water -= wingredient;
-     color -= col_ingredient;
+     color_blue -= col_ingredient_blue;
+     color_red -=  col_ingredient_red;
+     color_yellow -=col_ingredient_yellow;
 
 
 	var reply= confirm('生產成功!');
@@ -139,10 +147,9 @@ function ingredient1(){
 	document.getElementById("amount_water").innerHTML=wingredient.toString();
 	document.getElementById("amount_sugar").innerHTML=0.01*wingredient.toString();
 	document.getElementById("amount_co2").innerHTML=0.01*wingredient.toString();
-	document.getElementById("amount_color").innerHTML=0.01*wingredient.toString();
 	document.getElementById("newamount").innerHTML=wingredient.toString();
+
 	cingredient = 0.01*wingredient;
-	col_ingredient = 0.01*wingredient;
 	singredient =  0.01*wingredient ;
 	pamount = wingredient ;
 }
@@ -152,10 +159,9 @@ function ingredient2(){
 	document.getElementById("amount_water").innerHTML=100*singredient.toString();
 	document.getElementById("amount_sugar").innerHTML=singredient.toString();
 	document.getElementById("amount_co2").innerHTML=singredient.toString();
-	document.getElementById("amount_color").innerHTML=singredient.toString();
 	document.getElementById("newamount").innerHTML=100*singredient.toString();
+
 	cingredient = singredient;
-	col_ingredient = singredient;
 	wingredient =  100*singredient ;
 	pamount = 100*singredient ;
 }
@@ -165,25 +171,30 @@ function ingredient3(){
 	document.getElementById("amount_water").innerHTML=100*cingredient.toString();
 	document.getElementById("amount_sugar").innerHTML=cingredient.toString();
 	document.getElementById("amount_co2").innerHTML=cingredient.toString();
-	document.getElementById("amount_color").innerHTML=cingredient.toString();
 	document.getElementById("newamount").innerHTML=100*cingredient.toString();
+	
 	singredient = cingredient;
-	col_ingredient = cingredient;
 	wingredient =  100*cingredient ;
 	pamount = 100*cingredient ;
 }
 function ingredient4(){
-	 col_ingredient =  prompt('請輸入所需此原料數量!') ;
-	alert('您所需要的數量為:' + colingredient);
-	document.getElementById("amount_water").innerHTML=100*col_ingredient.toString();
-	document.getElementById("amount_sugar").innerHTML=col_ingredient.toString();
-	document.getElementById("amount_co2").innerHTML=col_ingredient.toString();
-	document.getElementById("amount_color").innerHTML=col_ingredient.toString();
-	document.getElementById("newamount").innerHTML=100*col_ingredient.toString();
-	singredient = col_ingredient;
-	cingredient = col_ingredient;
-	wingredient =  100*col_ingredient ;
-	pamount = 100*col_ingredient ;
+	 col_ingredient_blue =  prompt('請輸入所需此原料數量!') ;
+	alert('您所需要的數量為:' + col_ingredient_blue);
+
+	document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toString();
+	
+}
+function ingredient5(){
+	 col_ingredient_red =  prompt('請輸入所需此原料數量!') ;
+	alert('您所需要的數量為:' + col_ingredient_red);
+	
+	document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toString();
+}
+function ingredient6(){
+	 col_ingredient_yellow =  prompt('請輸入所需此原料數量!') ;
+	alert('您所需要的數量為:' + col_ingredient_yellow);
+	
+	document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toString();
 }
 
 //跳窗調整製造量
@@ -194,11 +205,11 @@ function p_amount(){
 	document.getElementById("amount_water").innerHTML=pamount.toString();
 	document.getElementById("amount_sugar").innerHTML=0.01*pamount.toString();
 	document.getElementById("amount_co2").innerHTML=0.01*pamount.toString();
-	document.getElementById("amount_color").innerHTML=0.01*pamount.toString();
+	
 	singredient = 0.01*pamount;
 	cingredient = 0.01*pamount;
 	wingredient = pamount;
-	col_ingredient = 0.01*pamount;
+	
 
 }
 //新增產品
@@ -214,6 +225,12 @@ function addOption(list, text, value){
 	//在存貨畫面新增欄位
 	addStockBox(value);
 }
+function addOption2(list, text, value){
+	var index=list.options.length;
+	list.options[index]=new Option(text, value);
+	list.selectedIndex=index;
+	}
+
 //存貨
 function stock() {
 
@@ -231,7 +248,8 @@ function addStockRequest(id) {
     stockRequestBox.setAttribute("class", "requestBox");
     stockRequestBox.setAttribute("needid", id);
     stockRequestBox.onclick = addStockConfirm;
-    var tempAmountArray = ["水","二氧化碳","糖","色素"];
+    //竹改了array內容
+    var tempAmountArray = ["水","二氧化碳","糖","藍色色素","紅色色素","黃色色素"];
     if(id.slice(0,1) == "i") {
     	var name = tempAmountArray[id.slice(1,2)-1];
     	stockRequestBox.innerHTML = name + "存貨短缺，存貨端要求補貨";
@@ -247,18 +265,24 @@ function addStockRequest(id) {
 function addStockConfirm(eventObj) {
 	var boxid = eventObj.target.id;
 	var needid = eventObj.target.getAttribute("needid");
-	var tempAmountArray = ["水","二氧化碳","糖","色素"];
+	//竹改了array內容
+	var tempAmountArray = ["水","二氧化碳","糖","藍色色素","紅色色素","黃色色素"];
 	if(needid.slice(0,1) == "i") {
     	var name = tempAmountArray[needid.slice(1,2)-1];
     	if(confirm("是否補貨" + name + ingredientOrderAmount[needid.slice(1,2)-1] + "單位？")){
+    		//竹新增了if的判斷
     		if(needid.slice(1,2) == 1) {
     			water += 100000;
     		} else if (needid.slice(1,2) == 2) {
     			co2 += 1000;
     		} else if (needid.slice(1,2) == 3) {
     			sugar += 1000;
-    		} else {
-    			color += 1000;
+    		} else if (needid.slice(1,2) == 4) {
+    			color_blue += 1000;
+    		} else if (needid.slice(1,2) == 5) {
+    			color_red += 1000;
+    		} else   {
+    			color_yellow += 1000;
     		}
     		alert("補貨完成！");
     		var del = document.getElementById(boxid);
@@ -311,9 +335,9 @@ function addStockBox(name) {
 
 function stockRefresh() {
 	//原物料狀態的刷新
-	var tempAmountArray = [water,co2,sugar,color];
+	var tempAmountArray = [water,co2,sugar,color_blue,color_red,color_yellow];
 
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < 6; i++) {
 		var temp = "ingredientQuantity" + (i+1);
 		document.getElementById(temp).innerHTML = tempAmountArray[i];
 		temp = "ingredientStat" + (i+1);

@@ -43,7 +43,7 @@
                                             <img src="test.jpg" alt="" height="100px" width="100px">
                                             <span id="ingredientName2">二氧化碳</span>
                                             <span>數量：</span>
-                                            <span id="ingredientQuantity2">10000</span>
+                                            <span id="ingredientQuantity2">1000</span>
                                             <span>存貨狀態：</span>
                                             <span id="ingredientStat2"></span>
                                             <span id="i2"></span>
@@ -53,7 +53,7 @@
                                             <img src="test.jpg" alt="" height="100px" width="100px">
                                             <span id="ingredientName3">糖</span>
                                             <span>數量：</span>
-                                            <span id="ingredientQuantity3">100000</span>
+                                            <span id="ingredientQuantity3">1000</span>
                                             <span>存貨狀態：</span>
                                             <span id="ingredientStat3"></span>
                                             <span id="i3"></span>
@@ -61,13 +61,33 @@
                                         </div>
                                         <div class="stockbox">
                                             <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="ingredientName4">色素</span>
+                                            <span id="ingredientName4">藍色色素</span>
                                             <span>數量：</span>
-                                            <span id="ingredientQuantity4">100000</span>
+                                            <span id="ingredientQuantity4">1000</span>
                                             <span>存貨狀態：</span>
                                             <span id="ingredientStat4"></span>
                                             <span id="i4"></span>
                                             <button onclick="addStockRequest(i4.id)">增加存貨</button>
+                                        </div>
+                                        <div class="stockbox">
+                                            <img src="test.jpg" alt="" height="100px" width="100px">
+                                            <span id="ingredientName5">紅色色素</span>
+                                            <span>數量：</span>
+                                            <span id="ingredientQuantity5">1000</span>
+                                            <span>存貨狀態：</span>
+                                            <span id="ingredientStat5"></span>
+                                            <span id="i5"></span>
+                                            <button onclick="addStockRequest(i5.id)">增加存貨</button>
+                                        </div>
+                                        <div class="stockbox">
+                                            <img src="test.jpg" alt="" height="100px" width="100px">
+                                            <span id="ingredientName6">黃色色素</span>
+                                            <span>數量：</span>
+                                            <span id="ingredientQuantity6">1000</span>
+                                            <span>存貨狀態：</span>
+                                            <span id="ingredientStat6"></span>
+                                            <span id="i6"></span>
+                                            <button onclick="addStockRequest(i6.id)">增加存貨</button>
                                         </div>
                                     </div>
                                 </li>
@@ -137,14 +157,12 @@
                     <input type="radio" name="tabs" id="tab3" />
                     <label for="tab3">生產</label>
                     <div id="tab-content3" class="tab-content">
-
-                        
-
                         <div id="tab-info" class="infoTab-content" align="right">
+
                             
                         <button onclick="p_amount()" align="right">調整製造量</button>
-                    
                         <img src="new.jpg" id="soda" alt="" style="vertical-align:middle">
+
                         <span>製造量:</span><span id="newamount">5000</span><span>L</span>
                         <form>  
                              <select id="color" >
@@ -153,37 +171,56 @@
 　                             <option value="橘色汽水">橘色汽水
 　                             <option value="黑色汽水">黑色汽水
                              </select>
+                            <select id="propotion" >
+　                             <option value="藍色汽水/1:0:0">藍色汽水/1:0:0
+　                             <option value="紅色汽水/0:1:0">紅色汽水/0:1:0
+　                             <option value="橘色汽水/1:1:0">橘色汽水/1:1:0
+　                             <option value="黑色汽水/1:1:1">黑色汽水/1:1:1
+                             </select>
                              <p>
                                 
-                                <input type="button" value="增加右列選項" onclick="addOption(color, theText.value, theText.value)">
-                                汽水名: <input id=theText value="name">
+                                <input type="button" value="增加汽水種類" onclick="addOption(color, theText.value, theText.value)">
+                                汽水名: <input id=theText value="白色汽水"><br>
+                                <input type="button" value="增加汽水比例" onclick="addOption2(propotion, thePropotion.value, thePropotion.value)">
+                                比例:   <input id=thePropotion value="白色汽水/0:0:0">
+                                 
                                 
                              </p>
-                        </form>             
+                        </form>    
                         </div>
 
 
                         <div id="tab-water" class="proTab-content" >
                             <h1>水</h1>
-                            <span id="amount_water">5000</span>
+                            <span id="amount_water">5000</span><span>L</span>
                             <button onclick="ingredient1()" >調整</button>
 
                         </div> 
                         <div id="tab-co2" class="proTab-content">
                             <h1>二氧化碳</h1>
-                            <span id="amount_co2">50</span>
+                            <span id="amount_co2">50</span><span>L</span>
                             <button onclick="ingredient2()" >調整</button>
                         </div>  
                         <div id="tab-sugar" class="proTab-content">
                             <h1>糖</h1>
-                            <span id="amount_sugar">50</span>
+                            <span id="amount_sugar">50</span><span>kg</span>
                             <button onclick="ingredient3()" >調整</button>
                         </div>
-                        <div id="tab-color" class="proTab-content">
-                            <h1>色素</h1>
-                            <span id="amount_color">50</span>
+                        <div id="tab-colorblue" class="proTab-content">
+                            <h1>藍色色素</h1>
+                            <span id="amount_colorblue">50</span><span>kg</span>
                             <button onclick="ingredient4()" >調整</button>
+                        </div>
+                        <div id="tab-colorred" class="proTab-content">
+                            <h1>紅色色素</h1>
+                            <span id="amount_colorred">0</span><span>kg</span>
+                            <button onclick="ingredient5()" >調整</button>
                         </div> 
+                        <div id="tab-coloryellow" class="proTab-content">
+                            <h1>黃色色素</h1>
+                            <span id="amount_coloryellow">0</span><span>kg</span>
+                            <button onclick="ingredient6()" >調整</button>
+                        </div>  
                         <div id="tab-order" class="proTab-order">
                             <h1>生產訂單</h1>
                             <span>訂單數:</span>

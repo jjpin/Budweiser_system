@@ -85,7 +85,9 @@ var store10_sales_D = [160, 250, 264, 250, 283, 290, 299, 260, 235, 220, 200, 15
 
 productNames = ["藍色汽水","紅色汽水","橘色汽水","黑色汽水"];
 productAmounts = [5000,5000,5000,5000];
-productPropotion =["1:0:0","0:1:0","1:1:0","1:1:1"];
+productPropotion =["1:0:0","0:1:0","0:1:1","1:1:1"];
+
+    
 
 
 //生產要素
@@ -94,8 +96,13 @@ var wingredient=5000;
 var singredient=50;
 var cingredient=50;
 var col_ingredient_blue=50;
-var col_ingredient_red=50;
-var col_ingredient_yellow=50;
+var col_ingredient_red=0;
+var col_ingredient_yellow=0;
+
+//色素
+var pro_blue;
+var pro_red;
+var pro_yellow;
 
 
 //存貨狀態
@@ -108,7 +115,7 @@ var addStockRequestIndex = 0;
 
 //生產
 
-function sureforproduce(){
+function sureforproduce(name,amount){
 	var name =  document.getElementById("color").value;
     var amount = parseFloat(document.getElementById("newamount").innerHTML); 
 
@@ -153,10 +160,14 @@ function ingredient1(){
 	document.getElementById("amount_sugar").innerHTML=0.01*wingredient.toString();
 	document.getElementById("amount_co2").innerHTML=0.01*wingredient.toString();
 	document.getElementById("newamount").innerHTML=wingredient.toString();
+	document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toString();
+	document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toString();
+	document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toString();
 
 	cingredient = 0.01*wingredient;
 	singredient =  0.01*wingredient ;
 	pamount = wingredient ;
+	colorPerRefresh();
 }
 }
 function ingredient2(){
@@ -174,6 +185,8 @@ function ingredient2(){
 	cingredient = singredient;
 	wingredient =  100*singredient ;
 	pamount = 100*singredient ;
+	colorPerRefresh();
+
 }
 }
 function ingredient3(){
@@ -190,21 +203,23 @@ function ingredient3(){
 	singredient = cingredient;
 	wingredient =  100*cingredient ;
 	pamount = 100*cingredient ;
+	colorPerRefresh();
 }
 }
 function ingredient4(){
 	 col_ingredient_blue =  prompt('請輸入所需此原料數量!') ;
 	 if(col_ingredient_blue==""){
-	 	alert('請輸入數字!')
+	 	alert('請輸入數字!');
 	 }else{
 	alert('您所需要的數量為:' + col_ingredient_blue);
 	document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toString();
 	}
+
 }
 function ingredient5(){
 	 col_ingredient_red =  prompt('請輸入所需此原料數量!') ;
 	if(col_ingredient_red==""){
-		alert('請輸入數字!')
+		alert('請輸入數字!');
 	 }else{
 	alert('您所需要的數量為:' + col_ingredient_red);
 	document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toString();
@@ -213,7 +228,7 @@ function ingredient5(){
 function ingredient6(){
 	 col_ingredient_yellow =  prompt('請輸入所需此原料數量!') ;
 	 if(col_ingredient_yellow==""){
-	 	alert('請輸入數字!')
+	 	alert('請輸入數字!');
 	 }else{
 	alert('您所需要的數量為:' + col_ingredient_yellow);
 	document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toString();
@@ -232,11 +247,12 @@ function p_amount(){
 	singredient = 0.01*pamount;
 	cingredient = 0.01*pamount;
 	wingredient = pamount;
+	colorPerRefresh();
 	
 
 }
 //新增產品
-function addOption(list, text, value1, value2){
+function addOption(list, text, value1, value2 ){
 	
 	if(value1=="" || value2==""){
 		alert('請輸入汽水名稱和色素比例!');
@@ -247,6 +263,7 @@ function addOption(list, text, value1, value2){
 	list.selectedIndex=index;
 
 	productNames.push(value1);
+	
 	productPropotion.push(value2);
 	productAmounts.push(0);
 	productStats.push("短缺");
@@ -260,14 +277,44 @@ function addOption(list, text, value1, value2){
 }
 
 function colorPerRefresh(){
-
-	for(var i=0 ; i < productPropotion.length ; i++){
-		if(productNames[i] == document.getElementById("color").value){
-				document.getElementById("colorPer").innerHTML= productPropotion[i];
-		}
-	}
-
+	var p_blue;
+	var p_red;
+	var p_yellow;
 	
+
+	for(var i in  productPropotion ){
+		if(productNames[i] == document.getElementById("color").value){
+				document.getElementById("colorPer").innerHTML= productPropotion[i];	
+
+				p_blue = productPropotion[i].slice(0,1);
+				p_red =  productPropotion[i].slice(2,3);
+				p_yellow = productPropotion[i].slice(4,5);
+
+				pro_blue=parseFloat(p_blue);
+				pro_red=parseFloat(p_red);
+				pro_yellow=parseFloat(p_yellow);
+
+				if(pro_blue+pro_red+pro_yellow == 0){
+					col_ingredient_blue=0;
+					col_ingredient_red=0;
+					col_ingredient_yellow=0;
+				}else{
+
+				col_ingredient_blue  = Math.round(wingredient*0.01*pro_blue/(pro_blue+pro_red+pro_yellow)) ;
+				col_ingredient_red   = Math.round(wingredient*0.01*pro_red/(pro_blue+pro_red+pro_yellow)) ;
+				col_ingredient_yellow= Math.round(wingredient*0.01*pro_yellow/(pro_blue+pro_red+pro_yellow)) ;
+				
+				}
+
+				document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toString();
+				document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toString();
+				document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toString();
+		
+					
+		}
+
+
+	}
 }
 //存貨
 function stock() {
@@ -332,7 +379,8 @@ function addStockConfirm(eventObj) {
     } else {
     	var name = productNames[needid.slice(1,2)-1];
     	if(confirm("是否生產" + name + "5000單位？")){
-    		produce(name,5000);
+    		//改成呼叫sureforproduce
+    		sureforproduce(name,5000);
     		var del = document.getElementById(boxid);
     		del.parentNode.removeChild(del);
     		//竹:訂單數減少

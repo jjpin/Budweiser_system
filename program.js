@@ -393,6 +393,52 @@ function stockRefresh() {
 }
 
 //行銷
-function sell() {
+function sell1() {
+	var store1Sale = window.open("store1.html", "store1", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store1Sale.document.write("分店一<br/> 今日銷售:"+store1_cur[0]+" <br/> 剩餘存貨:"+store1_cur[1]+" <br/> 配送數量:"+store1_cur[2]);
+}
 
+function sell2() {
+	var store2Sale = window.open("store2.html", "store2", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store2Sale.document.write("分店二<br/> 今日銷售:"+store2_cur[0]+" <br/> 剩餘存貨:"+store2_cur[1]+" <br/> 配送數量:"+store2_cur[2]);
+}
+
+function sell3() {
+	var store3Sale = window.open("store3.html", "store3", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store3Sale.document.write("分店三<br/> 今日銷售:"+store3_cur[0]+" <br/> 剩餘存貨:"+store3_cur[1]+" <br/> 配送數量:"+store3_cur[2]);
+}
+
+function sell4() {
+	var store4Sale = window.open("store4.html", "store4", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store4Sale.document.write("分店四<br/> 今日銷售:"+store4_cur[0]+" <br/> 剩餘存貨:"+store4_cur[1]+" <br/> 配送數量:"+store4_cur[2]);
+}
+
+function sell5() {
+	var store5Sale = window.open("store5.html", "store5", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store5Sale.document.write("分店五<br/> 今日銷售:"+store5_cur[0]+" <br/> 剩餘存貨:"+store5_cur[1]+" <br/> 配送數量:"+store5_cur[2]);
+}
+
+function sell6() {
+	var store6Sale = window.open("store6.html", "store6", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store6Sale.document.write("分店六<br/> 今日銷售:"+store6_cur[0]+" <br/> 剩餘存貨:"+store6_cur[1]+" <br/> 配送數量:"+store6_cur[2]);
+}
+
+function sell7() {
+	var store7Sale = window.open("store7.html", "store7", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store7Sale.document.write("分店七<br/> 今日銷售:"+store7_cur[0]+" <br/> 剩餘存貨:"+store7_cur[1]+" <br/> 配送數量:"+store7_cur[2]);
+}
+
+function sell8() {
+	var store8Sale = window.open("store8.html", "store8", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store8Sale.document.write("分店八<br/> 今日銷售:"+store8_cur[0]+" <br/> 剩餘存貨:"+store8_cur[1]+" <br/> 配送數量:"+store8_cur[2]);
+}
+
+function sell9() {
+	var store9Sale = window.open("store9.html", "store9", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store9Sale.document.write("分店九<br/> 今日銷售:"+store9_cur[0]+" <br/> 剩餘存貨:"+store9_cur[1]+" <br/> 配送數量:"+store9_cur[2]);
+}
+
+function sell10() {
+	var store10Sale = window.open("store10.html", "store10", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+	store10Sale.document.write("分店十<br/> 今日銷售:"+store10_cur[0]+" <br/> 剩餘存貨:"+store10_cur[1]+" <br/> 配送數量:"+store10_cur[2]);
 }

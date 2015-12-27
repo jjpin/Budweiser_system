@@ -3,6 +3,7 @@ window.onload = init;
 //這裡放一開啟網頁就要執行一次的函式
 function init() {
 	stockRefresh();
+	colorPerRefresh();
 }
 
 //宣告資料庫們
@@ -84,6 +85,7 @@ var store10_sales_D = [160, 250, 264, 250, 283, 290, 299, 260, 235, 220, 200, 15
 
 productNames = ["藍色汽水","紅色汽水","橘色汽水","黑色汽水"];
 productAmounts = [5000,5000,5000,5000];
+productPropotion =["1:0:0","0:1:0","1:1:0","1:1:1"];
 
 
 //生產要素
@@ -143,6 +145,9 @@ function produce(name,amount) {
 //跳窗調整原料量(按比例)
 function ingredient1(){
 	 wingredient =  prompt('請輸入所需此原料數量!') ;
+	if(wingredient==""){
+	 	alert('請輸入數字!');
+	 }else{
 	alert('您所需要的數量為:' + wingredient);
 	document.getElementById("amount_water").innerHTML=wingredient.toString();
 	document.getElementById("amount_sugar").innerHTML=0.01*wingredient.toString();
@@ -153,8 +158,13 @@ function ingredient1(){
 	singredient =  0.01*wingredient ;
 	pamount = wingredient ;
 }
+}
 function ingredient2(){
 	 singredient =  prompt('請輸入所需此原料數量!') ;
+
+	if(singredient==""){
+	 	alert('請輸入數字!');
+	 }else{ 
 	alert('您所需要的數量為:' + singredient);
 	document.getElementById("amount_water").innerHTML=100*singredient.toString();
 	document.getElementById("amount_sugar").innerHTML=singredient.toString();
@@ -165,8 +175,12 @@ function ingredient2(){
 	wingredient =  100*singredient ;
 	pamount = 100*singredient ;
 }
+}
 function ingredient3(){
 	 cingredient =  prompt('請輸入所需此原料數量!') ;
+	 if(cingredient==""){
+	 	alert('請輸入數字!');
+	 }else{
 	alert('您所需要的數量為:' + cingredient);
 	document.getElementById("amount_water").innerHTML=100*cingredient.toString();
 	document.getElementById("amount_sugar").innerHTML=cingredient.toString();
@@ -177,24 +191,33 @@ function ingredient3(){
 	wingredient =  100*cingredient ;
 	pamount = 100*cingredient ;
 }
+}
 function ingredient4(){
 	 col_ingredient_blue =  prompt('請輸入所需此原料數量!') ;
+	 if(col_ingredient_blue==""){
+	 	alert('請輸入數字!')
+	 }else{
 	alert('您所需要的數量為:' + col_ingredient_blue);
-
 	document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toString();
-	
+	}
 }
 function ingredient5(){
 	 col_ingredient_red =  prompt('請輸入所需此原料數量!') ;
+	if(col_ingredient_red==""){
+		alert('請輸入數字!')
+	 }else{
 	alert('您所需要的數量為:' + col_ingredient_red);
-	
 	document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toString();
+	}
 }
 function ingredient6(){
 	 col_ingredient_yellow =  prompt('請輸入所需此原料數量!') ;
+	 if(col_ingredient_yellow==""){
+	 	alert('請輸入數字!')
+	 }else{
 	alert('您所需要的數量為:' + col_ingredient_yellow);
-	
 	document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toString();
+	}
 }
 
 //跳窗調整製造量
@@ -213,24 +236,39 @@ function p_amount(){
 
 }
 //新增產品
-function addOption(list, text, value){
+function addOption(list, text, value1, value2){
+	
+	if(value1=="" || value2==""){
+		alert('請輸入汽水名稱和色素比例!');
+	}else{
+
 	var index=list.options.length;
-	list.options[index]=new Option(text, value);
+	list.options[index]=new Option(text, value1);
 	list.selectedIndex=index;
 
-	productNames.push(value);
+	productNames.push(value1);
+	productPropotion.push(value2);
 	productAmounts.push(0);
 	productStats.push("短缺");
 
+
+
 	//在存貨畫面新增欄位
-	addStockBox(value);
+	addStockBox(value1);
+	colorPerRefresh();
 }
-function addOption2(list, text, value){
-	var index=list.options.length;
-	list.options[index]=new Option(text, value);
-	list.selectedIndex=index;
+}
+
+function colorPerRefresh(){
+
+	for(var i=0 ; i < productPropotion.length ; i++){
+		if(productNames[i] == document.getElementById("color").value){
+				document.getElementById("colorPer").innerHTML= productPropotion[i];
+		}
 	}
 
+	
+}
 //存貨
 function stock() {
 

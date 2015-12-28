@@ -199,3 +199,61 @@ label:hover {
 .requestBox:hover {
     background: #eee;
 }
+
+#store1{
+    position: absolute;
+    left: 400px;
+}
+
+#store2{
+    position: absolute;
+    left: 460px;
+    top: 150px;
+}
+
+#store3{
+    position: absolute;
+    left: 850px;
+    top: 200px;
+}
+
+#store4{
+    position: absolute;
+    left: 1000px;
+}
+
+#store5{
+    position: absolute;
+    left: 1050px;
+    top: 400px;
+}
+
+#store6{
+    position: absolute;
+    left: 400px;
+    top: 300px;
+}
+
+#store7{
+    position: absolute;
+    left: 250px;
+    top: 350px;
+}
+
+#store8{
+    position: absolute;
+    left: 550px;
+    top: 450px;
+}
+
+#store9{
+    position: absolute;
+    left: 580px;
+    top: 310px;
+}
+
+#store10{
+    position: absolute;
+    left: 1100px;
+    top: 300px;
+}

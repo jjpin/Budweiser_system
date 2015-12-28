@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <title>百威產銷資訊系統</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="program.js"></script>
+    
 </head>
 
 <body>
@@ -247,6 +251,28 @@
                         <div><input  type="image" name="store8" id="store8"  img src="mark.png" height="100px" weight="100px" onClick="sell8()"></div> 
                         <div><input  type="image" name="store9" id="store9"  img src="mark.png" height="100px" weight="100px" onClick="sell9()"></div> 
                         <div><input  type="image" name="store10" id="store10"  img src="mark.png" height="100px" weight="100px" onClick="sell10()"></div> 
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="tabs" id="tab5" />
+                    <label for="tab5">統計圖表</label>
+                    <div id="tab-content5" class="tab-content">
+                    <span>選擇分店：</span>
+                    <select id="chartSelect" onchange="chartRefresh()">
+                    <option value="0">分店一</option>
+                    <option value="1">分店二</option>
+                    <option value="2">分店三</option>
+                    <option value="3">分店四</option>
+                    <option value="4">分店五</option>
+                    <option value="5">分店六</option>
+                    <option value="6">分店七</option>
+                    <option value="7">分店八</option>
+                    <option value="8">分店九</option>
+                    <option value="9">分店十</option>
+                    <option value="all">全部</option>
+                    </select>
+                    <button id="chartButton">確認</button>
+                    <div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                     </div>
                 </li>
             </ul>

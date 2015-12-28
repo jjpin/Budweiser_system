@@ -4,6 +4,7 @@ window.onload = init;
 function init() {
 	stockRefresh();
 	colorPerRefresh();
+	chartRefresh();
 }
 
 //宣告資料庫們
@@ -19,6 +20,9 @@ var color_yellow=1000;
 var color_blue=1000;//公斤
 var co2=1000;//1000公升
 
+
+var storeName;
+var storeSaleA, storeSaleB, storeSaleC, storeSaleD;
 
 var store1_cur = [35, 10, 50]; //分店現在狀況(今日銷售, 剩餘存貨, 配送數量)
 var store2_cur = [28, 20, 50];
@@ -490,3 +494,92 @@ function sell10() {
 	var store10Sale = window.open("store10.html", "store10", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
 	store10Sale.document.write("分店十<br/> 今日銷售:"+store10_cur[0]+" <br/> 剩餘存貨:"+store10_cur[1]+" <br/> 配送數量:"+store10_cur[2]);
 }
+
+function chartRefresh() {
+	var tempStoreArray = [
+	store1_sales_A, store1_sales_B, store1_sales_C, store1_sales_D, 
+	store2_sales_A, store2_sales_B, store2_sales_C, store2_sales_D, 
+	store3_sales_A, store3_sales_B, store3_sales_C, store3_sales_D, 
+	store4_sales_A, store4_sales_B, store4_sales_C, store4_sales_D, 
+	store5_sales_A, store5_sales_B, store5_sales_C, store5_sales_D, 
+	store6_sales_A, store6_sales_B, store6_sales_C, store6_sales_D, 
+	store7_sales_A, store7_sales_B, store7_sales_C, store7_sales_D, 
+	store8_sales_A, store8_sales_B, store8_sales_C, store8_sales_D, 
+	store9_sales_A, store9_sales_B, store9_sales_C, store9_sales_D, 
+	store10_sales_A, store10_sales_B, store10_sales_C, store10_sales_D
+	];
+	var index = document.getElementById("chartSelect").value;
+	if(index != "all") {
+		storeSaleA = tempStoreArray[4*index];
+		storeSaleB = tempStoreArray[4*index+1];
+		storeSaleC = tempStoreArray[4*index+2];
+		storeSaleD = tempStoreArray[4*index+3];
+	} else {
+		for (var i = 0; i < 12;i++) {
+			for (var j = 0; j < 40; j=j+4) {
+				storeSaleA[i] += parseInt(tempStoreArray[j][i]);
+			}
+			for (var j = 1; j < 40; j=j+4) {
+				storeSaleB[i] += parseInt(tempStoreArray[j][i]);
+			}
+			for (var j = 2; j < 40; j=j+4) {
+				storeSaleC[i] += parseInt(tempStoreArray[j][i]);
+			}
+			for (var j = 3; j < 40; j=j+4) {
+				storeSaleD[i] += parseInt(tempStoreArray[j][i]);
+			}
+		}
+	}
+}
+
+//highcharts用
+$(function() {   
+
+$('#chartButton').click(function () {
+    $('#chartContainer').highcharts({
+        title: {
+            text: "分店銷售資料" ,
+            x: -20 //center
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: '瓶'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '瓶'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '藍色汽水',
+            data: storeSaleA
+        }, 
+        {
+            name: '紅色汽水',
+            data: storeSaleB
+        }, 
+        {
+            name: '橘色汽水',
+            data: storeSaleC
+        }, 
+        {
+            name: '黑色汽水',
+            data: storeSaleD
+        }]
+    });
+});
+});

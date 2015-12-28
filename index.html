@@ -16,7 +16,8 @@
                     <input type="radio" name="tabs" id="tab1" checked />
                     <label for="tab1">首頁</label>
                     <div id="tab-content1" class="tab-content">
-                        首頁～～～～～～
+                        
+                        
                     </div>
                 </li>
                 <li>
@@ -156,20 +157,20 @@
                 <li>
                     <input type="radio" name="tabs" id="tab3" />
                     <label for="tab3">生產</label>
-                    <div id="tab-content3" class="tab-content">
+                    <div id="tab-content3" class="tab-content" >
                         <div id="tab-info" class="infoTab-content" align="right">
 
                             
                         <button onclick="p_amount()" align="right">調整製造量</button>
                         
-                        <img src="new.jpg" id="soda" alt="" style="vertical-align:middle">
+                        <img src="operational.png" id="soda" alt="" style="vertical-align:middle">
                         
                         <span>製造量:</span><span id="newamount">5000</span><span>L</span>
                         <br>
                         <span>色素比例:</span><span id ="colorPer"></span><br>
 
                         <form>  
-                             <select id="color" onChange="colorPerRefresh()" >
+                             <select id="color" onChange="colorPerRefresh()"  >
 　                             <option value="藍色汽水">藍色汽水
 　                             <option value="紅色汽水">紅色汽水
 　                             <option value="橘色汽水">橘色汽水
@@ -180,7 +181,8 @@
                                 
                                 <input type="button" value="增加汽水種類" onclick="addOption(color, theText.value, theText.value, thePropotion.value)">
                                 汽水名: <input id=theText value="白色汽水"><br>
-                                色素比例: <input id=thePropotion value="0:0:0">
+                                色素比例: <input id=thePropotion value="0:0:0" >
+                                          
                                 
                              </p>
                         </form>    
@@ -210,12 +212,12 @@
                         </div>
                         <div id="tab-colorred" class="proTab-content">
                             <h1>紅色色素</h1>
-                            <span id="amount_colorred">50</span><span>kg</span>
+                            <span id="amount_colorred">0</span><span>kg</span>
                             <button onclick="ingredient5()" >調整</button>
                         </div> 
                         <div id="tab-coloryellow" class="proTab-content">
                             <h1>黃色色素</h1>
-                            <span id="amount_coloryellow">50</span><span>kg</span>
+                            <span id="amount_coloryellow">0</span><span>kg</span>
                             <button onclick="ingredient6()" >調整</button>
                         </div>  
                         <div id="tab-order" class="proTab-order">
@@ -235,6 +237,7 @@
                     <input type="radio" name="tabs" id="tab4" />
                     <label for="tab4">行銷</label>
                     <div id="tab-content4" class="tab-content" style="background-image:url('map.png');">
+<<<<<<< HEAD
                         <div><input  type="image" name="store1" id="store1"  img src="mark.png" height="100px" weight="100px" onClick="sell1()"></div>
                         <div><input  type="image" name="store2" id="store2"  img src="mark.png" height="100px" weight="100px" onClick="sell2()"></div> 
                         <div><input  type="image" name="store3" id="store3"  img src="mark.png" height="100px" weight="100px" onClick="sell3()"></div> 

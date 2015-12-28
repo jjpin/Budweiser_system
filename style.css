@@ -69,6 +69,7 @@ label:hover {
     background: white;
     transition: all 1s ease-in-out;
     float:left;
+    background-image: url( ' banner.jpg ' );
 }
 .proTab-content {
     border: 1px solid black;

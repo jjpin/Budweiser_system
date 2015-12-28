@@ -116,6 +116,14 @@ var productStats = ["正常","正常","正常","正常"];
 //補貨相關
 var ingredientOrderAmount = [100000,1000,1000,1000,1000,1000];
 var addStockRequestIndex = 0;
+//補貨色素相關
+
+var ord_ingredient_blue;
+var ord_ingredient_red;
+var ord_ingredient_yellow;
+var ord_blue;
+var ord_red;
+var ord_yellow;
 
 //生產
 
@@ -320,6 +328,56 @@ function colorPerRefresh(){
 
 	}
 }
+//訂單呼叫的生產函數
+function orderproduce(name, amount){
+var order_blue;
+var order_red;
+var order_yellow;
+
+	 for(var j in  productPropotion){
+	 	if(productNames[j] == name){
+	 		order_blue = productPropotion[j].slice(0,1);
+	 		order_red = productPropotion[j].slice(2,3); 
+	 		order_yellow = productPropotion[j].slice(4,5);  
+
+	 		    ord_blue=parseFloat(order_blue);
+				ord_red=parseFloat(order_red);
+				ord_yellow=parseFloat(order_yellow);
+
+				if(ord_blue+ord_red+ord_yellow == 0){
+					ord_ingredient_blue=0;
+					ord_ingredient_red=0;
+					ord_ingredient_yellow=0;
+				}else{
+
+				ord_ingredient_blue  = Math.round(50*ord_blue/(ord_blue+ord_red+ord_yellow)) ;
+				ord_ingredient_red   = Math.round(50*ord_red/(ord_blue+ord_red+ord_yellow)) ;
+				ord_ingredient_yellow= Math.round(50*ord_yellow/(ord_blue+ord_red+ord_yellow)) ;
+				
+				}
+	 	}
+	 }
+	 co2   -= 50;
+	 sugar -= 50;
+	 water -= 5000;
+     color_blue -= ord_ingredient_blue;
+     color_red -=  ord_ingredient_red;
+     color_yellow -=ord_ingredient_yellow;
+
+
+	var reply= confirm('生產成功!');
+
+	for(var i=0 ; i < productNames.length ; i++ ){
+		if ( productNames[i] == name ) {
+			productAmounts[i] += amount;
+		}
+	}
+	
+	alert("您所製造的品項為:"+ name +"，製造量為:"+ amount +"L");
+	
+	stockRefresh();
+
+}
 //存貨
 function stock() {
 
@@ -384,7 +442,7 @@ function addStockConfirm(eventObj) {
     	var name = productNames[needid.slice(1,2)-1];
     	if(confirm("是否生產" + name + "5000單位？")){
     		//改成呼叫sureforproduce
-    		sureforproduce(name,5000);
+    		orderproduce(name,5000);
     		var del = document.getElementById(boxid);
     		del.parentNode.removeChild(del);
     		//竹:訂單數減少

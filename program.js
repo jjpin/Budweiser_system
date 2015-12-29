@@ -484,7 +484,7 @@ function addStockBox(name) {
 function stockRefresh() {
 	//原物料狀態的刷新
 	var tempAmountArray = [water,co2,sugar,color_blue,color_red,color_yellow];
-
+	stockStatCompute();
 	for (var i = 0; i < 6; i++) {
 		var temp = "ingredientQuantity" + (i+1);
 		document.getElementById(temp).innerHTML = tempAmountArray[i];
@@ -500,6 +500,97 @@ function stockRefresh() {
 		temp = "productStat" + (i+1);
 		document.getElementById(temp).innerHTML = productStats[i];
 	}	
+}
+
+function stockStatCompute() {
+	var tempStoreArray = [
+	store1_sales_A, store1_sales_B, store1_sales_C, store1_sales_D, 
+	store2_sales_A, store2_sales_B, store2_sales_C, store2_sales_D, 
+	store3_sales_A, store3_sales_B, store3_sales_C, store3_sales_D, 
+	store4_sales_A, store4_sales_B, store4_sales_C, store4_sales_D, 
+	store5_sales_A, store5_sales_B, store5_sales_C, store5_sales_D, 
+	store6_sales_A, store6_sales_B, store6_sales_C, store6_sales_D, 
+	store7_sales_A, store7_sales_B, store7_sales_C, store7_sales_D, 
+	store8_sales_A, store8_sales_B, store8_sales_C, store8_sales_D, 
+	store9_sales_A, store9_sales_B, store9_sales_C, store9_sales_D, 
+	store10_sales_A, store10_sales_B, store10_sales_C, store10_sales_D
+	];
+	var aveSaleA = 0;
+	var aveSaleB = 0;
+	var aveSaleC = 0;
+	var aveSaleD = 0;
+
+	for (var i = 0; i < 12;i++) {
+		for (var j = 0; j < 40; j=j+4) {
+			aveSaleA += parseInt(tempStoreArray[j][i])/365;
+		}
+		for (var j = 1; j < 40; j=j+4) {
+			aveSaleB += parseInt(tempStoreArray[j][i])/365;
+		}
+		for (var j = 2; j < 40; j=j+4) {
+			aveSaleC += parseInt(tempStoreArray[j][i])/365;
+		}
+		for (var j = 3; j < 40; j=j+4) {
+			aveSaleD += parseInt(tempStoreArray[j][i])/365;
+		}
+	}
+	console.log(aveSaleA + aveSaleB + aveSaleC + aveSaleD);
+
+
+	if (productAmounts[0] < aveSaleA*1.1) {
+		productStats[0] = "短缺";
+	} else {
+		productStats[0] = "正常";
+	}
+	if (productAmounts[1] < aveSaleB*1.1) {
+		productStats[1] = "短缺";
+	} else {
+		productStats[1] = "正常";
+	}
+	if (productAmounts[2] < aveSaleC*1.1) {
+		productStats[2] = "短缺";
+	} else {
+		productStats[2] = "正常";
+	}
+	if (productAmounts[3] < aveSaleD*1.1) {
+		productStats[3] = "短缺";
+	} else {
+		productStats[3] = "正常";
+	}
+
+	//["水","二氧化碳","糖","藍色色素","紅色色素","黃色色素"]
+	if (water < (aveSaleA + aveSaleB + aveSaleC + aveSaleD)*1.1) {
+		ingredientStats[0] = "短缺";
+	} else {
+		ingredientStats[0] = "正常";
+	}
+	if (co2 < (aveSaleA + aveSaleB + aveSaleC + aveSaleD)*0.01*1.1) {
+		ingredientStats[1] = "短缺";
+	} else {
+		ingredientStats[1] = "正常";
+	}
+	if (sugar < (aveSaleA + aveSaleB + aveSaleC + aveSaleD)*0.01*1.1) {
+		ingredientStats[2] = "短缺";
+	} else {
+		ingredientStats[2] = "正常";
+	}
+	if (color_blue < (aveSaleA + aveSaleB + aveSaleC + aveSaleD)*0.01*1.1) {
+		ingredientStats[3] = "短缺";
+	} else {
+		ingredientStats[3] = "正常";
+	}
+	if (color_red < (aveSaleA + aveSaleB + aveSaleC + aveSaleD)*0.01*1.1) {
+		ingredientStats[4] = "短缺";
+	} else {
+		ingredientStats[4] = "正常";
+	}
+	if (color_yellow < (aveSaleA + aveSaleB + aveSaleC + aveSaleD)*0.01*1.1) {
+		ingredientStats[5] = "短缺";
+	} else {
+		ingredientStats[5] = "正常";
+	}
+
+
 }
 
 //行銷

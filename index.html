@@ -172,6 +172,7 @@
                         <span>製造量:</span><span id="newamount">500</span><span>L</span>
                         <br>
                         <span>色素比例:</span><span id ="colorPer"></span><br>
+                        <button onclick="sureforproduce()" >確認生產！</button>
 
                         <form>  
                              <select id="color" onChange="colorPerRefresh()"  >
@@ -181,6 +182,7 @@
 　                             <option value="黑色汽水">黑色汽水
                              </select>
                             
+                            <div id="tab-add" class="Tabadd-content" align="left">
                              <p>
                                 
                                 <input type="button" value="增加汽水種類" onclick="addOption(color, theText.value, theText.value, thePropotion.value)">
@@ -189,6 +191,7 @@
                                           
                                 
                              </p>
+                            </div>
                         </form>    
                         </div>
 
@@ -233,7 +236,7 @@
                             
                         </div>   
 
-                        <button onclick="sureforproduce()" >確認生產！</button>
+                        
 
                     </div>
                 </li>

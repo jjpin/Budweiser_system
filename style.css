@@ -72,6 +72,12 @@ label:hover {
     float:left;
     background-image: url( ' bg.jpg ' );
 }
+
+#tab-content1 {
+    background-image: url("bghome.jpg");
+
+}
+
 .proTab-content {
     border: 1px solid black;
     z-index: 2;
@@ -138,14 +144,14 @@ label:hover {
 
 
 #stockTabsContainer {
-    width: 1402px;
+    width: 1605px;
     margin: 0px auto;
     text-align: left;
     background: rgba(255, 255, 255, 0.9);
 }
 
 .stockTabs {
-    width: 1400px;
+    width: 1600px;
     float: none;
     list-style: none;
     position: relative;
@@ -162,7 +168,7 @@ label:hover {
     overflow: auto;
     position: static;
     width: 600px;
-    height: 400px;
+    height: 350px;
     font-size: 17px;
     line-height: 25px;
     padding: 25px;
@@ -265,14 +271,23 @@ label:hover {
 }
 
 #sodaRequest{
-    position: absolute;
-    left: 50px;
-    top: 50px;
-    height: 100px;
-    width: 200px;
+    position: static;
+    height: 350px;
+    width: 180px;
     background-color: white;
     border: 1px solid black;
-    display: none;
+    z-index: 2;
+    display: block;
+    float: left;
+    overflow: auto;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 25px;
+    margin: 5px 15px 5px 0px;
+    top: 53px;
+    left: 0;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 1s ease-in-out;
 }
 
 #chartSelectBox {

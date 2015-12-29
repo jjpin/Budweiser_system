@@ -254,6 +254,27 @@ label:hover {
     top: 300px;
 }
 
+.sellBox{
+    position: absolute;
+    left: 1255px;
+    top: 10px;
+    height: 200px;
+    width: 400px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+#sodaRequest{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    height: 100px;
+    width: 200px;
+    background-color: white;
+    border: 1px solid black;
+    display: none;
+}
+
 #chartSelectBox {
     width: 250px;
     height: 30px;

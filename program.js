@@ -568,53 +568,193 @@ function stockStatCompute() {
 
 //行銷
 function sell1() {
-	var store1Sale = window.open("store1.html", "store1", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store1Sale.document.write("分店一<br/> 今日銷售:"+store1_cur[0]+" <br/> 剩餘存貨:"+store1_cur[1]+" <br/> 配送數量:"+store1_cur[2]);
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox1").style.display="block";
+	document.getElementById("store1total").innerHTML=store1_cur[0];
+	document.getElementById("store1left").innerHTML=store1_cur[1];
+	document.getElementById("store1blue").innerHTML=store1_cur[2];
+	document.getElementById("store1red").innerHTML=store1_cur[3];
+	document.getElementById("store1org").innerHTML=store1_cur[4];
+	document.getElementById("store1black").innerHTML=store1_cur[5];
 }
 
 function sell2() {
-	var store2Sale = window.open("store2.html", "store2", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store2Sale.document.write("分店二<br/> 今日銷售:"+store2_cur[0]+" <br/> 剩餘存貨:"+store2_cur[1]+" <br/> 配送數量:"+store2_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox2").style.display="block";
+	document.getElementById("store2total").innerHTML=store2_cur[0];
+	document.getElementById("store2left").innerHTML=store2_cur[1];
+	document.getElementById("store2blue").innerHTML=store2_cur[2];
+	document.getElementById("store2red").innerHTML=store2_cur[3];
+	document.getElementById("store2org").innerHTML=store2_cur[4];
+	document.getElementById("store2black").innerHTML=store2_cur[5];
 }
 
 function sell3() {
-	var store3Sale = window.open("store3.html", "store3", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store3Sale.document.write("分店三<br/> 今日銷售:"+store3_cur[0]+" <br/> 剩餘存貨:"+store3_cur[1]+" <br/> 配送數量:"+store3_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox3").style.display="block";
+	document.getElementById("store3total").innerHTML=store3_cur[0];
+	document.getElementById("store3left").innerHTML=store3_cur[1];
+	document.getElementById("store3blue").innerHTML=store3_cur[2];
+	document.getElementById("store3red").innerHTML=store3_cur[3];
+	document.getElementById("store3org").innerHTML=store3_cur[4];
+	document.getElementById("store3black").innerHTML=store3_cur[5];
 }
 
 function sell4() {
-	var store4Sale = window.open("store4.html", "store4", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store4Sale.document.write("分店四<br/> 今日銷售:"+store4_cur[0]+" <br/> 剩餘存貨:"+store4_cur[1]+" <br/> 配送數量:"+store4_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox4").style.display="block";
+	document.getElementById("store4total").innerHTML=store4_cur[0];
+	document.getElementById("store4left").innerHTML=store4_cur[1];
+	document.getElementById("store4blue").innerHTML=store4_cur[2];
+	document.getElementById("store4red").innerHTML=store4_cur[3];
+	document.getElementById("store4org").innerHTML=store4_cur[4];
+	document.getElementById("store4black").innerHTML=store4_cur[5];
 }
 
 function sell5() {
-	var store5Sale = window.open("store5.html", "store5", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store5Sale.document.write("分店五<br/> 今日銷售:"+store5_cur[0]+" <br/> 剩餘存貨:"+store5_cur[1]+" <br/> 配送數量:"+store5_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox5").style.display="block";
+	document.getElementById("store5total").innerHTML=store5_cur[0];
+	document.getElementById("store5left").innerHTML=store5_cur[1];
+	document.getElementById("store5blue").innerHTML=store5_cur[2];
+	document.getElementById("store5red").innerHTML=store5_cur[3];
+	document.getElementById("store5org").innerHTML=store5_cur[4];
+	document.getElementById("store5black").innerHTML=store5_cur[5];
 }
 
 function sell6() {
-	var store6Sale = window.open("store6.html", "store6", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store6Sale.document.write("分店六<br/> 今日銷售:"+store6_cur[0]+" <br/> 剩餘存貨:"+store6_cur[1]+" <br/> 配送數量:"+store6_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox6").style.display="block";
+	document.getElementById("store6total").innerHTML=store6_cur[0];
+	document.getElementById("store6left").innerHTML=store6_cur[1];
+	document.getElementById("store6blue").innerHTML=store6_cur[2];
+	document.getElementById("store6red").innerHTML=store6_cur[3];
+	document.getElementById("store6org").innerHTML=store6_cur[4];
+	document.getElementById("store6black").innerHTML=store6_cur[5];
 }
 
 function sell7() {
-	var store7Sale = window.open("store7.html", "store7", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store7Sale.document.write("分店七<br/> 今日銷售:"+store7_cur[0]+" <br/> 剩餘存貨:"+store7_cur[1]+" <br/> 配送數量:"+store7_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox7").style.display="block";
+	document.getElementById("store7total").innerHTML=store7_cur[0];
+	document.getElementById("store7left").innerHTML=store7_cur[1];
+	document.getElementById("store7blue").innerHTML=store7_cur[2];
+	document.getElementById("store7red").innerHTML=store7_cur[3];
+	document.getElementById("store7org").innerHTML=store7_cur[4];
+	document.getElementById("store7black").innerHTML=store7_cur[5];
 }
 
 function sell8() {
-	var store8Sale = window.open("store8.html", "store8", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store8Sale.document.write("分店八<br/> 今日銷售:"+store8_cur[0]+" <br/> 剩餘存貨:"+store8_cur[1]+" <br/> 配送數量:"+store8_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox8").style.display="block";
+	document.getElementById("store8total").innerHTML=store8_cur[0];
+	document.getElementById("store8left").innerHTML=store8_cur[1];
+	document.getElementById("store8blue").innerHTML=store8_cur[2];
+	document.getElementById("store8red").innerHTML=store8_cur[3];
+	document.getElementById("store8org").innerHTML=store8_cur[4];
+	document.getElementById("store8black").innerHTML=store8_cur[5];
 }
 
 function sell9() {
-	var store9Sale = window.open("store9.html", "store9", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store9Sale.document.write("分店九<br/> 今日銷售:"+store9_cur[0]+" <br/> 剩餘存貨:"+store9_cur[1]+" <br/> 配送數量:"+store9_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox10").style.display="none";
+	document.getElementById("sellBox9").style.display="block";
+	document.getElementById("store9total").innerHTML=store9_cur[0];
+	document.getElementById("store9left").innerHTML=store9_cur[1];
+	document.getElementById("store9blue").innerHTML=store9_cur[2];
+	document.getElementById("store9red").innerHTML=store9_cur[3];
+	document.getElementById("store9org").innerHTML=store9_cur[4];
+	document.getElementById("store9black").innerHTML=store9_cur[5];
 }
 
 function sell10() {
-	var store10Sale = window.open("store10.html", "store10", "height=200, width=250, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
-	store10Sale.document.write("分店十<br/> 今日銷售:"+store10_cur[0]+" <br/> 剩餘存貨:"+store10_cur[1]+" <br/> 配送數量:"+store10_cur[2]);
+	document.getElementById("sellBox1").style.display="none";
+	document.getElementById("sellBox2").style.display="none";
+	document.getElementById("sellBox3").style.display="none";
+	document.getElementById("sellBox4").style.display="none";
+	document.getElementById("sellBox5").style.display="none";
+	document.getElementById("sellBox6").style.display="none";
+	document.getElementById("sellBox7").style.display="none";
+	document.getElementById("sellBox8").style.display="none";
+	document.getElementById("sellBox9").style.display="none";
+	document.getElementById("sellBox10").style.display="block";
+	document.getElementById("store10total").innerHTML=store10_cur[0];
+	document.getElementById("store10left").innerHTML=store10_cur[1];
+	document.getElementById("store10blue").innerHTML=store10_cur[2];
+	document.getElementById("store10red").innerHTML=store10_cur[3];
+	document.getElementById("store10org").innerHTML=store10_cur[4];
+	document.getElementById("store10black").innerHTML=store10_cur[5];
 }
 
 function chartRefresh() {

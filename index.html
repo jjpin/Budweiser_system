@@ -32,64 +32,58 @@
                             <ul class="stockTabs">
                                 <li>
                                     <input type="radio" name="stockTabs" id="stockTab1" checked />
-                                    <label for="stockTab1">原物料</label>
+                                    <label for="stockTab1" style="width: 70px;text-align: center;">原物料</label>
                                     <div id="stockTab-content1" class="stockTab-content">
                                         <div class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="ingredientName1">水</span>
+                                            <h2 id="ingredientName1">水</h2>
                                             <span>數量：</span>
                                             <span id="ingredientQuantity1">10000</span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="ingredientStat1"></span>
                                             <span id="i1"></span>
                                             <button onclick="addStockRequest(i1.id)">增加存貨</button>
                                         </div>
                                         <div class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="ingredientName2">二氧化碳</span>
+                                            <h2 id="ingredientName2">二氧化碳</h2>
                                             <span>數量：</span>
                                             <span id="ingredientQuantity2">100</span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="ingredientStat2"></span>
                                             <span id="i2"></span>
                                             <button onclick="addStockRequest(i2.id)">增加存貨</button>
                                         </div>
                                         <div class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="ingredientName3">糖</span>
+                                            <h2 id="ingredientName3">糖</h2>
                                             <span>數量：</span>
                                             <span id="ingredientQuantity3">100</span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="ingredientStat3"></span>
                                             <span id="i3"></span>
                                             <button onclick="addStockRequest(i3.id)">增加存貨</button>
                                         </div>
                                         <div class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="ingredientName4">藍色色素</span>
+                                            <h2 id="ingredientName4">藍色色素</h2>
                                             <span>數量：</span>
                                             <span id="ingredientQuantity4">100</span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="ingredientStat4"></span>
                                             <span id="i4"></span>
                                             <button onclick="addStockRequest(i4.id)">增加存貨</button>
                                         </div>
                                         <div class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="ingredientName5">紅色色素</span>
+                                            <h2 id="ingredientName5">紅色色素</h2>
                                             <span>數量：</span>
                                             <span id="ingredientQuantity5">100</span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="ingredientStat5"></span>
                                             <span id="i5"></span>
                                             <button onclick="addStockRequest(i5.id)">增加存貨</button>
                                         </div>
                                         <div class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="ingredientName6">黃色色素</span>
+                                            <h2 id="ingredientName6">黃色色素</h2>
                                             <span>數量：</span>
                                             <span id="ingredientQuantity6">100</span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="ingredientStat6"></span>
                                             <span id="i6"></span>
                                             <button onclick="addStockRequest(i6.id)">增加存貨</button>
@@ -98,55 +92,50 @@
                                 </li>
                                 <li>
                                     <input type="radio" name="stockTabs" id="stockTab2" />
-                                    <label for="stockTab2">產品</label>
+                                    <label for="stockTab2"  style="width: 70px;text-align: center;">產品</label>
                                     <div id="stockTab-content2" class="stockTab-content">
                                         <div id="stockSample" class="stockbox" style="display:none;">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span name="productNameSample"></span>
+                                            <h2 name="productNameSample"></h2>
                                             <span>數量：</span>
                                             <span name="productQuantitySample"></span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span name="productStatSample"></span>
                                             <span name="pS"></span>
                                             <button name="addStockButton">增加存貨</button>
                                         </div>
 
                                         <div id="stock1" class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="productName1">藍色汽水</span>
+                                            <h2 id="productName1">藍色汽水</h2>
                                             <span>數量：</span>
                                             <span id="productQuantity1"></span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="productStat1"></span>
                                             <span id="p1"></span>
                                             <button onclick="addStockRequest(p1.id)">增加存貨</button>
                                         </div>
                                         <div id="stock2" class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="productName2">紅色汽水</span>
+                                            <h2 id="productName2">紅色汽水</h2>
                                             <span>數量：</span>
                                             <span id="productQuantity2"></span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="productStat2"></span>
                                             <span id="p2"></span>
                                             <button onclick="addStockRequest(p2.id)">增加存貨</button>
                                         </div>
                                         <div id="stock3" class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="productName3">橘色汽水</span>
+                                            <h2 id="productName3">橘色汽水</h2>
                                             <span>數量：</span>
                                             <span id="productQuantity3"></span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="productStat3"></span>
                                             <span id="p3"></span>
                                             <button onclick="addStockRequest(p3.id)">增加存貨</button>
                                         </div>
                                         <div id="stock4" class="stockbox">
-                                            <img src="test.jpg" alt="" height="100px" width="100px">
-                                            <span id="productName4">黑色汽水</span>
+                                            <h2 id="productName4">黑色汽水</h2>
                                             <span>數量：</span>
                                             <span id="productQuantity4"></span>
-                                            <span>存貨狀態：</span>
+                                            <span>/  存貨狀態：</span>
                                             <span id="productStat4"></span>
                                             <span id="p4"></span>
                                             <button onclick="addStockRequest(p4.id)">增加存貨</button>
@@ -155,7 +144,6 @@
                                     
                                 </li>
                             </ul>
-                            <button onclick="stockRefresh()">REFRESH</button>
                         </div>
                 </li>
                 <li>
@@ -257,6 +245,7 @@
                     <input type="radio" name="tabs" id="tab5" />
                     <label for="tab5">統計圖表</label>
                     <div id="tab-content5" class="tab-content">
+                    <div id="chartSelectBox">
                     <span>選擇分店：</span>
                     <select id="chartSelect" onchange="chartRefresh()">
                     <option value="0">分店一</option>
@@ -272,6 +261,7 @@
                     <option value="all">全部</option>
                     </select>
                     <button id="chartButton">確認</button>
+                    </div>
                     <div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                     </div>
                 </li>

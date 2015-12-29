@@ -1,3 +1,4 @@
+
 #tabsContainer {
     width: 702px;
     margin: 0px auto;
@@ -69,7 +70,7 @@ label:hover {
     background: white;
     transition: all 1s ease-in-out;
     float:left;
-    background-image: url( ' banner.jpg ' );
+    background-image: url( ' bg.jpg ' );
 }
 .proTab-content {
     border: 1px solid black;
@@ -84,8 +85,9 @@ label:hover {
     margin: 10px;
     top: 53px;
     left: 0;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     transition: all 1s ease-in-out;
+    
 }
 .proTab-order {
     border: 1px solid black;
@@ -100,8 +102,9 @@ label:hover {
     margin: 10px;
     top: 53px;
     left: 0;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     transition: all 1s ease-in-out;
+    
 }
 .infoTab-content {
     border: 1px solid black;
@@ -116,8 +119,9 @@ label:hover {
     margin: 10px;
     top: 53px;
     left: 0;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     transition: all 1s ease-in-out;
+    
 }
 [id^="tab"]:checked + label {
     top: 2px;
@@ -134,48 +138,39 @@ label:hover {
 
 
 #stockTabsContainer {
-    width: 702px;
+    width: 1402px;
     margin: 0px auto;
     text-align: left;
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .stockTabs {
-    width: 650px;
+    width: 1400px;
     float: none;
     list-style: none;
     position: relative;
     margin: 10px 0 10px 0;
-    padding: 0; 
     text-align: left;
+    float: left;
 }
 
 .stockTab-content {
     border: 1px solid black;
     z-index: 2;
-    display: none;
+    display: block;
+    float: left;
     overflow: auto;
-    width: 90%;
-    height: 300px;
+    position: static;
+    width: 600px;
+    height: 400px;
     font-size: 17px;
     line-height: 25px;
     padding: 25px;
-    position: absolute;
+    margin: 5px 15px 5px 0px;
     top: 53px;
     left: 0;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     transition: all 1s ease-in-out;
-}
-
-[id^="stockTab"]:checked + label {
-    top: 2px;
-    padding-top: 17px;
-    border-bottom-width: 0;
-    background: white;
-
-}
-
-[id^="stockTab"]:checked ~ [id^="stockTab-content"] {
-    display: block;
 }
 
 .stockbox {
@@ -183,6 +178,7 @@ label:hover {
     height: 100px;
     border: 1px solid black;
     padding: 10px;
+    padding-left: 30px;
     margin: 10px;
 }
 
@@ -256,4 +252,14 @@ label:hover {
     position: absolute;
     left: 1100px;
     top: 300px;
+}
+
+#chartSelectBox {
+    width: 250px;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid black;
+    background: rgba(255, 255, 255, 0.9);
 }

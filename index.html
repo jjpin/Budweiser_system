@@ -28,6 +28,7 @@
                     <input type="radio" name="tabs" id="tab2" />
                     <label for="tab2">存貨</label>
                     <div id="tab-content2" class="tab-content">
+                    <div id="sodaRequest"></div>
                         <div id="stockTabsContainer">
                             <ul class="stockTabs">
                                 <li>
@@ -239,6 +240,105 @@
                         <div><input  type="image" name="store8" id="store8"  img src="mark.png" height="100px" weight="100px" onClick="sell8()"></div> 
                         <div><input  type="image" name="store9" id="store9"  img src="mark.png" height="100px" weight="100px" onClick="sell9()"></div> 
                         <div><input  type="image" name="store10" id="store10"  img src="mark.png" height="100px" weight="100px" onClick="sell10()"></div> 
+                        <div id="sellBox1" class="sellBox" style="display:none">
+                            分店一</br>
+                            今日銷售：<span id="store1total"></span></br>
+                            剩餘存貨：<span id="store1left"></span></br></br>
+                            藍剩餘：<span id="store1blue"></span><button onclick="sodaRequest" store="分店一" soda="藍色汽水">訂貨請求</button></br>
+                            紅剩餘：<span id="store1red"></span></br>
+                            橘剩餘：<span id="store1org"></span></br>
+                            黑剩餘：<span id="store1black"></span></br>
+                        </div>
+
+                        <div id="sellBox2" class="sellBox" style="display:none">
+                            分店二</br>
+                            今日銷售：<span id="store2total"></span></br>
+                            剩餘存貨：<span id="store2left"></span></br></br>
+                            藍剩餘：<span id="store2blue"></span></br>
+                            紅剩餘：<span id="store2red"></span></br>
+                            橘剩餘：<span id="store2org"></span></br>
+                            黑剩餘：<span id="store2black"></span></br>
+                        </div>
+
+                        <div id="sellBox3" class="sellBox" style="display:none">
+                            分店三</br>
+                            今日銷售：<span id="store3total"></span></br>
+                            剩餘存貨：<span id="store3left"></span></br></br>
+                            藍剩餘：<span id="store3blue"></span></br>
+                            紅剩餘：<span id="store3red"></span></br>
+                            橘剩餘：<span id="store3org"></span></br>
+                            黑剩餘：<span id="store3black"></span></br>
+                        </div>
+
+                        <div id="sellBox4" class="sellBox" style="display:none">
+                            分店四</br>
+                            今日銷售：<span id="store4total"></span></br>
+                            剩餘存貨：<span id="store4left"></span></br></br>
+                            藍剩餘：<span id="store4blue"></span></br>
+                            紅剩餘：<span id="store4red"></span></br>
+                            橘剩餘：<span id="store4org"></span></br>
+                            黑剩餘：<span id="store4black"></span></br>
+                        </div>
+
+                        <div id="sellBox5" class="sellBox" style="display:none">
+                            分店五</br>
+                            今日銷售：<span id="store5total"></span></br>
+                            剩餘存貨：<span id="store5left"></span></br></br>
+                            藍剩餘：<span id="store5blue"></span></br>
+                            紅剩餘：<span id="store5red"></span></br>
+                            橘剩餘：<span id="store5org"></span></br>
+                            黑剩餘：<span id="store5black"></span></br>
+                        </div>
+
+                        <div id="sellBox6" class="sellBox" style="display:none">
+                            分店六</br>
+                            今日銷售：<span id="store6total"></span></br>
+                            剩餘存貨：<span id="store6left"></span></br></br>
+                            藍剩餘：<span id="store6blue"></span></br>
+                            紅剩餘：<span id="store6red"></span></br>
+                            橘剩餘：<span id="store6org"></span></br>
+                            黑剩餘：<span id="store6black"></span></br>
+                        </div>
+
+                        <div id="sellBox7" class="sellBox" style="display:none">
+                            分店七</br>
+                            今日銷售：<span id="store7total"></span></br>
+                            剩餘存貨：<span id="store7left"></span></br></br>
+                            藍剩餘：<span id="store7blue"></span></br>
+                            紅剩餘：<span id="store7red"></span></br>
+                            橘剩餘：<span id="store7org"></span></br>
+                            黑剩餘：<span id="store7black"></span></br>
+                        </div>
+
+                        <div id="sellBox8" class="sellBox" style="display:none">
+                            分店八</br>
+                            今日銷售：<span id="store8total"></span></br>
+                            剩餘存貨：<span id="store8left"></span></br></br>
+                            藍剩餘：<span id="store8blue"></span></br>
+                            紅剩餘：<span id="store8red"></span></br>
+                            橘剩餘：<span id="store8org"></span></br>
+                            黑剩餘：<span id="store8black"></span></br>
+                        </div>
+
+                        <div id="sellBox9" class="sellBox" style="display:none">
+                            分店九</br>
+                            今日銷售：<span id="store9total"></span></br>
+                            剩餘存貨：<span id="store9left"></span></br></br>
+                            藍剩餘：<span id="store9blue"></span></br>
+                            紅剩餘：<span id="store9red"></span></br>
+                            橘剩餘：<span id="store9org"></span></br>
+                            黑剩餘：<span id="store9black"></span></br>
+                        </div>
+
+                        <div id="sellBox10" class="sellBox" style="display:none">
+                            分店十</br>
+                            今日銷售：<span id="store10total"></span></br>
+                            剩餘存貨：<span id="store10left"></span></br></br>
+                            藍剩餘：<span id="store10blue"></span></br>
+                            紅剩餘：<span id="store10red"></span></br>
+                            橘剩餘：<span id="store10org"></span></br>
+                            黑剩餘：<span id="store10black"></span></br>
+                        </div>
                     </div>
                 </li>
                 <li>

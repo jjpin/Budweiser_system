@@ -218,34 +218,7 @@ function ingredient3(){
 	colorPerRefresh();
 }
 }
-function ingredient4(){
-	 col_ingredient_blue =  prompt('請輸入所需此原料數量!') ;
-	 if(col_ingredient_blue==""){
-	 	alert('請輸入數字!');
-	 }else{
-	alert('您所需要的數量為:' + col_ingredient_blue);
-	document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toString();
-	}
 
-}
-function ingredient5(){
-	 col_ingredient_red =  prompt('請輸入所需此原料數量!') ;
-	if(col_ingredient_red==""){
-		alert('請輸入數字!');
-	 }else{
-	alert('您所需要的數量為:' + col_ingredient_red);
-	document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toString();
-	}
-}
-function ingredient6(){
-	 col_ingredient_yellow =  prompt('請輸入所需此原料數量!') ;
-	 if(col_ingredient_yellow==""){
-	 	alert('請輸入數字!');
-	 }else{
-	alert('您所需要的數量為:' + col_ingredient_yellow);
-	document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toString();
-	}
-}
 
 //跳窗調整製造量
 function p_amount(){
@@ -312,15 +285,15 @@ function colorPerRefresh(){
 					col_ingredient_yellow=0;
 				}else{
 
-				col_ingredient_blue  = (wingredient*0.01*pro_blue/(pro_blue+pro_red+pro_yellow)) ;
-				col_ingredient_red   = (wingredient*0.01*pro_red/(pro_blue+pro_red+pro_yellow)) ;
-				col_ingredient_yellow= (wingredient*0.01*pro_yellow/(pro_blue+pro_red+pro_yellow)) ;
+				col_ingredient_blue  = (wingredient*0.01*pro_blue/(pro_blue+pro_red+pro_yellow)).toFixed(2) ;
+				col_ingredient_red   = (wingredient*0.01*pro_red/(pro_blue+pro_red+pro_yellow)).toFixed(2) ;
+				col_ingredient_yellow= (wingredient*0.01*pro_yellow/(pro_blue+pro_red+pro_yellow)).toFixed(2) ;
 				
 				}
 
-				document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toFixed(2).toString();
-				document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toFixed(2).toString();
-				document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toFixed(2).toString();
+				document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toString();
+				document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toString();
+				document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toString();
 		
 					
 		}

@@ -312,15 +312,15 @@ function colorPerRefresh(){
 					col_ingredient_yellow=0;
 				}else{
 
-				col_ingredient_blue  = Math.round(wingredient*0.01*pro_blue/(pro_blue+pro_red+pro_yellow)) ;
-				col_ingredient_red   = Math.round(wingredient*0.01*pro_red/(pro_blue+pro_red+pro_yellow)) ;
-				col_ingredient_yellow= Math.round(wingredient*0.01*pro_yellow/(pro_blue+pro_red+pro_yellow)) ;
+				col_ingredient_blue  = (wingredient*0.01*pro_blue/(pro_blue+pro_red+pro_yellow)) ;
+				col_ingredient_red   = (wingredient*0.01*pro_red/(pro_blue+pro_red+pro_yellow)) ;
+				col_ingredient_yellow= (wingredient*0.01*pro_yellow/(pro_blue+pro_red+pro_yellow)) ;
 				
 				}
 
-				document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toString();
-				document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toString();
-				document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toString();
+				document.getElementById("amount_colorblue").innerHTML=col_ingredient_blue.toFixed(2).toString();
+				document.getElementById("amount_colorred").innerHTML=col_ingredient_red.toFixed(2).toString();
+				document.getElementById("amount_coloryellow").innerHTML=col_ingredient_yellow.toFixed(2).toString();
 		
 					
 		}
@@ -350,9 +350,9 @@ var order_yellow;
 					ord_ingredient_yellow=0;
 				}else{
 
-				ord_ingredient_blue  = Math.round(5*ord_blue/(ord_blue+ord_red+ord_yellow)) ;
-				ord_ingredient_red   = Math.round(5*ord_red/(ord_blue+ord_red+ord_yellow)) ;
-				ord_ingredient_yellow= Math.round(5*ord_yellow/(ord_blue+ord_red+ord_yellow)) ;
+				ord_ingredient_blue  = (5*ord_blue/(ord_blue+ord_red+ord_yellow)) ;
+				ord_ingredient_red   = (5*ord_red/(ord_blue+ord_red+ord_yellow)) ;
+				ord_ingredient_yellow= (5*ord_yellow/(ord_blue+ord_red+ord_yellow)) ;
 				
 				}
 	 	}
@@ -360,9 +360,9 @@ var order_yellow;
 	 co2   -= 5;
 	 sugar -= 5;
 	 water -= 500;
-     color_blue -= ord_ingredient_blue;
-     color_red -=  ord_ingredient_red;
-     color_yellow -=ord_ingredient_yellow;
+     color_blue -= ord_ingredient_blue.toFixed(2);
+     color_red -=  ord_ingredient_red.toFixed(2);
+     color_yellow -=ord_ingredient_yellow.toFixed(2);
 
 
 	var reply= confirm('生產成功!');

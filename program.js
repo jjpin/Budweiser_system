@@ -845,3 +845,11 @@ $('#chartButton').click(function () {
     });
 });
 });
+
+//降價
+function discount(){
+	var discountMoney = 0.4*parseFloat(storeSaleA)/parseFloat(storeSaleD)/(1.4);
+	document.getElementById("segustion").style.display="block";	
+	document.getElementById("blackdiscount").innerHTML= discountMoney.toFixed(3);
+}
+

@@ -369,9 +369,13 @@
                     <option value="9">分店十</option>
                     <option value="all">全部</option>
                     </select>
-                    <button id="chartButton">確認</button>
+                    <button id="chartButton" onclick="discount()">確認</button>
                     </div>
                     <div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <div id="segustion" style="display:none; weight:200px; height:50px; background:rgba(255, 255, 255, 0.9)">
+                        <span>建議銷售組合：凡購買藍色汽水，即可以10元加購黑色汽水</br></span>
+                        <span>建議降價方式：黑色汽水需降價</span><span id="blackdiscount"></span><span>元</span>
+                    </div>
                     </div>
                 </li>
             </ul>
